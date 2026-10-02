@@ -21,6 +21,12 @@
   --gap: 0.8rem;          /* space between items inside a section */
   --section: 2rem;        /* space between sections */
   --radius: 0.16rem;      /* photo / card corners */
+  --text-scale: 1;        /* multiplies all body/small text sizes */
+}
+
+/* Phones: the column is narrower than on desktop, so bump the text up a bit */
+@media (max-width: 600px) {
+  :root { --text-scale: 1.12; }
 }
 
 * {
@@ -82,7 +88,7 @@ button { font: inherit; color: inherit; }
 .dots i:nth-child(3) { background: rgb(31, 16, 11); }
 
 .quote {
-  font-size: 0.48rem;
+  font-size: calc(0.48rem * var(--text-scale));
   font-weight: bold;
   line-height: 2;
   letter-spacing: 0.03rem;
@@ -92,7 +98,7 @@ button { font: inherit; color: inherit; }
 .quote-accent { color: var(--accent); }
 
 .story {
-  font-size: 0.4rem;
+  font-size: calc(0.4rem * var(--text-scale));
   font-weight: bold;
   line-height: 1.9;
   letter-spacing: 0.02rem;
@@ -102,7 +108,7 @@ button { font: inherit; color: inherit; }
 .story-date {
   display: block;
   margin-bottom: 0.25rem;
-  font-size: 0.38rem;
+  font-size: calc(0.38rem * var(--text-scale));
   color: var(--accent);
   letter-spacing: 0.04rem;
 }
@@ -119,7 +125,7 @@ button { font: inherit; color: inherit; }
   padding: 0.14rem 0.4rem;
   background: var(--label-bg);
   color: var(--label-fg);
-  font-size: 0.44rem;
+  font-size: calc(0.44rem * var(--text-scale));
   font-weight: normal;
   letter-spacing: 0.08rem;
   line-height: 1.2;
@@ -162,7 +168,7 @@ button { font: inherit; color: inherit; }
 }
 
 .hero-text {
-  font-size: 0.4rem;
+  font-size: calc(0.4rem * var(--text-scale));
   font-weight: bold;
   line-height: 2.1;
   letter-spacing: 0.05rem;
@@ -172,7 +178,7 @@ button { font: inherit; color: inherit; }
 .hero-date {
   margin-top: 0.4rem;
   color: #fff;
-  font-size: 0.5rem;
+  font-size: calc(0.5rem * var(--text-scale));
   font-weight: bold;
   font-style: oblique;
   letter-spacing: 0.12rem;
@@ -230,7 +236,7 @@ button { font: inherit; color: inherit; }
 
 .movie-year {
   margin-top: 0.08rem;
-  font-size: 0.3rem;
+  font-size: calc(0.3rem * var(--text-scale));
   color: var(--text);
 }
 
@@ -240,14 +246,14 @@ button { font: inherit; color: inherit; }
   border-radius: 0.06rem;
   background: rgb(250, 208, 148);
   color: rgb(145, 97, 31);
-  font-size: 0.26rem;
+  font-size: calc(0.26rem * var(--text-scale));
   font-weight: bold;
   letter-spacing: 0.03rem;
 }
 
 .movie-meta {
   margin-top: 0.22rem;
-  font-size: 0.26rem;
+  font-size: calc(0.26rem * var(--text-scale));
   line-height: 1.75;
   color: var(--text);
 }
@@ -269,7 +275,7 @@ button { font: inherit; color: inherit; }
   border-radius: 0.13rem;
   background: #fff;
   color: #000;
-  font-size: 0.32rem;
+  font-size: calc(0.32rem * var(--text-scale));
   font-weight: bold;
 }
 
@@ -286,7 +292,7 @@ button { font: inherit; color: inherit; }
   position: absolute;
   top: 0.2rem;
   right: 0.35rem;
-  font-size: 0.45rem;
+  font-size: calc(0.45rem * var(--text-scale));
   line-height: 1;
   color: var(--text);
 }
@@ -324,7 +330,7 @@ button { font: inherit; color: inherit; }
 .rating-bars img { width: 100%; }
 
 .rating-count {
-  font-size: 0.24rem;
+  font-size: calc(0.24rem * var(--text-scale));
   color: var(--text);
 }
 
@@ -332,7 +338,7 @@ button { font: inherit; color: inherit; }
   margin-top: 0.3rem;
   padding-top: 0.25rem;
   border-top: 1px solid var(--line);
-  font-size: 0.26rem;
+  font-size: calc(0.26rem * var(--text-scale));
   color: var(--text);
 }
 
@@ -353,8 +359,8 @@ button { font: inherit; color: inherit; }
 }
 
 .song-text { flex: 1; display: flex; flex-direction: column; gap: 0.16rem; }
-.song-title { color: rgb(59, 40, 34); font-size: 0.45rem; font-weight: bold; }
-.song-status { color: rgb(160, 160, 160); font-size: 0.28rem; }
+.song-title { color: rgb(59, 40, 34); font-size: calc(0.45rem * var(--text-scale)); font-weight: bold; }
+.song-status { color: rgb(160, 160, 160); font-size: calc(0.28rem * var(--text-scale)); }
 .song-bars { width: 0.5rem; align-self: flex-end; margin-bottom: 0.1rem; }
 .song-cover { width: 1.6rem; height: 1.6rem; object-fit: cover; border-radius: 0.1rem; }
 
@@ -391,7 +397,7 @@ button { font: inherit; color: inherit; }
 
 .person-role {
   color: var(--muted);
-  font-size: 0.5rem;
+  font-size: calc(0.5rem * var(--text-scale));
   font-weight: bold;
   letter-spacing: 0.07rem;
 }
@@ -429,7 +435,7 @@ button { font: inherit; color: inherit; }
   padding: 0.08rem 0.3rem;
   background: var(--tag);
   color: var(--tan);
-  font-size: 0.36rem;
+  font-size: calc(0.36rem * var(--text-scale));
   font-weight: bold;
   letter-spacing: 0.08rem;
   line-height: 1.2;
@@ -463,7 +469,7 @@ button { font: inherit; color: inherit; }
   padding-top: 0.25rem;
   border-top: 1px solid var(--tag);
   color: var(--muted);
-  font-size: 0.28rem;
+  font-size: calc(0.28rem * var(--text-scale));
   line-height: 1.5;
   letter-spacing: 0.02rem;
   text-wrap: balance;
@@ -490,7 +496,7 @@ button { font: inherit; color: inherit; }
 .invite-from {
   position: relative;
   align-self: flex-end;
-  font-size: 0.42rem;
+  font-size: calc(0.42rem * var(--text-scale));
   font-weight: bold;
   letter-spacing: 0.03rem;
 }
@@ -500,7 +506,7 @@ button { font: inherit; color: inherit; }
 .info { align-items: stretch; }
 
 .info-text {
-  font-size: 0.4rem;
+  font-size: calc(0.4rem * var(--text-scale));
   font-weight: bold;
   line-height: 1.9;
   text-align: center;
@@ -523,8 +529,8 @@ button { font: inherit; color: inherit; }
 }
 
 .schedule img { height: 1.75rem; width: auto; margin-bottom: 0.1rem; }
-.schedule span { font-size: 0.38rem; }
-.schedule b { font-size: 0.34rem; }
+.schedule span { font-size: calc(0.38rem * var(--text-scale)); }
+.schedule b { font-size: calc(0.34rem * var(--text-scale)); }
 
 /* ---- Notes & closing ----------------------------------------------------------------- */
 
@@ -532,7 +538,7 @@ button { font: inherit; color: inherit; }
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  font-size: 0.38rem;
+  font-size: calc(0.38rem * var(--text-scale));
   font-weight: bold;
   line-height: 1.7;
 }
@@ -557,7 +563,7 @@ button { font: inherit; color: inherit; }
   margin-top: var(--section);
 }
 
-.closing .quote { font-size: 0.42rem; }
+.closing .quote { font-size: calc(0.42rem * var(--text-scale)); }
 .closing-lily { width: 2.6rem; }
 
 /* ---- Top bar (tabs, back to top, music) ---------------------------------- */
@@ -599,7 +605,7 @@ html { scroll-behavior: smooth; }
   border-radius: 0.36rem;
   background: none;
   color: var(--text);
-  font-size: 0.28rem;
+  font-size: calc(0.28rem * var(--text-scale));
   font-weight: bold;
   cursor: pointer;
 }
@@ -623,7 +629,7 @@ html { scroll-behavior: smooth; }
   border-radius: 0.1rem;
   background: none;
   color: var(--text);
-  font-size: 0.32rem;
+  font-size: calc(0.32rem * var(--text-scale));
   text-align: left;
   cursor: pointer;
 }
@@ -645,7 +651,7 @@ html { scroll-behavior: smooth; }
   padding: 0.12rem 0.22rem;
   border-radius: 1rem;
   color: var(--text);
-  font-size: 0.3rem;
+  font-size: calc(0.3rem * var(--text-scale));
   font-weight: bold;
   letter-spacing: 0.03rem;
   line-height: 1.3;
@@ -765,7 +771,7 @@ html { scroll-behavior: smooth; }
 .cd-digit.flip .curr { transform: translateY(100%); opacity: 0.6; }
 
 .cd-label {
-  font-size: 0.28rem;
+  font-size: calc(0.28rem * var(--text-scale));
   text-align: center;
   white-space: nowrap;
   opacity: 0.8;
@@ -791,8 +797,8 @@ html { scroll-behavior: smooth; }
   color: var(--theme);
 }
 
-.cal-top small { font-size: 0.36rem; }
-.cal-top .cal-year { font-size: 0.44rem; }
+.cal-top small { font-size: calc(0.36rem * var(--text-scale)); }
+.cal-top .cal-year { font-size: calc(0.44rem * var(--text-scale)); }
 
 .cal-week {
   display: flex;
@@ -805,7 +811,7 @@ html { scroll-behavior: smooth; }
 .cal-week span {
   width: calc(100% / 7);
   text-align: center;
-  font-size: 0.3rem;
+  font-size: calc(0.3rem * var(--text-scale));
   font-weight: 600;
   color: var(--theme);
 }
@@ -830,14 +836,14 @@ html { scroll-behavior: smooth; }
   left: 50%;
   top: 50%;
   z-index: 1;
-  font-size: 0.32rem;
+  font-size: calc(0.32rem * var(--text-scale));
   color: var(--theme);
   transform: translate(-50%, -50%);
 }
 
 .cal-days li.active span {
   color: var(--heart);
-  font-size: 0.28rem;
+  font-size: calc(0.28rem * var(--text-scale));
   font-weight: bold;
 }
 
