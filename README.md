@@ -45,5 +45,6 @@ Notes:
   re-sync after editing on Hunbei instead, or get the full font files.
 - Photos are the full-resolution originals uploaded to Hunbei, cropped locally
   to the framing chosen in the editor (Hunbei's own crops are heavily
-  compressed). `assets/images/manifest.json` maps each file to its source URL
-  (including crop).
+  compressed), then capped at 1600px on the long side.
+  `assets/images/manifest.json` maps each file to its source URL (including
+  crop).
