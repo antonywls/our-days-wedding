@@ -149,13 +149,11 @@ button { font: inherit; color: inherit; }
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-end;
-  min-height: min(100svh, 20rem);
-  padding: 2.6rem var(--pad) 4.4rem;
+  padding: 3.6rem var(--pad) 0;
 }
 
-.hero + .section { margin-top: 0.8rem; }
+.hero + .section { margin-top: 1rem; }
 
 .hero .dots {
   position: absolute;
@@ -180,14 +178,15 @@ button { font: inherit; color: inherit; }
   letter-spacing: 0.12rem;
 }
 
-/* The mountain sits on the bottom edge of the first screen.
-   Move it with bottom/left, resize it with width (height follows). */
+/* The mountain sits right under the date.
+   margin-top = gap to the date, width = size (height follows),
+   brightness() = how light the lines are (1 = original). */
 .hero-mountain {
-  position: absolute;
-  left: -0.3rem;
-  bottom: 0.3rem;
+  align-self: center;
   width: 10.6rem;
   max-width: none;
+  margin-top: 0.3rem;
+  filter: brightness(1.8);
 }
 
 /* ---- Movie card ------------------------------------------------------------- */
