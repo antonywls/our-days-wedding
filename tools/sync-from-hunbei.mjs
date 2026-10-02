@@ -19,6 +19,7 @@ const SCENE_URL = 'https://h5.hunbei.com/view/A1710396f06cf';
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DESIGN_REM = 37.5;       // Hunbei designs at 375px wide = 10rem
+const PHOTO_MAX_PX = 1600;     // longest side; still above 3x-phone resolution
 
 const rem = (px) => `${+(px / DESIGN_REM).toFixed(4)}rem`;
 const num = (v) => parseFloat(v);
@@ -119,8 +120,8 @@ function fullResUrl(src) {
   return firstStep ? `${base}?${firstStep}` : base;
 }
 
-// Qiniu re-encodes its crops at low quality, so fetch the untouched original
-// and apply the editor's crop (`crop/!WxHaXaY`) locally instead.
+// Qiniu re-encodes its crops at low quality, so fetch the untouched original,
+// apply the editor's crop (`crop/!WxHaXaY`) locally and cap the size.
 async function downloadOriginalPhoto(url, dest) {
   const [base, query = ''] = url.split('?');
   await download(base, dest);
@@ -129,6 +130,9 @@ async function downloadOriginalPhoto(url, dest) {
     const [, w, h, x, y] = m;
     execFileSync('sips', ['-c', h, w, '--cropOffset', y, x, '-s', 'formatOptions', '92', dest, '--out', dest], { stdio: 'ignore' });
   }
+  const dims = execFileSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', dest], { encoding: 'utf8' }).match(/\d+(?=\s*$)/gm).map(Number);
+  const args = Math.max(...dims) > PHOTO_MAX_PX ? ['-Z', String(PHOTO_MAX_PX)] : [];
+  execFileSync('sips', [...args, '-s', 'formatOptions', '82', dest, '--out', dest], { stdio: 'ignore' });
 }
 
 function styleMap(style) {
@@ -279,7 +283,7 @@ async function main() {
         manifest.push({ file, source: url });
       }
       const box = boxStyle(o.style, radius(o.wrapStyle));
-      html.push(`<div class="el image" style="${box}"><img src="assets/images/${file}" alt="" style="${toCss(imgCss)}" loading="lazy"></div>`);
+      html.push(`<div class="el image" style="${box}"><img src="assets/images/${file}" alt="" style="${toCss(imgCss)}"></div>`);
     } else if (o.type === 'calendar') {
       html.push(calendarHtml(o, END_TIME));
     } else if (o.type === 'countdown') {
@@ -304,7 +308,7 @@ async function main() {
   <button id="music" class="music" type="button" aria-label="播放 / 暫停音樂" style="background-color: ${scene.musicBg}">
     <img src="assets/icons/music.png" alt="">
   </button>
-  <audio id="bgm" src="assets/audio/music.mp3" loop preload="auto"></audio>
+  <audio id="bgm" src="assets/audio/music.mp3" loop preload="none"></audio>
 
   <main class="page" style="height: ${scene.height}; background-color: ${scene.bgColor}">
     ${html.join('\n    ')}
