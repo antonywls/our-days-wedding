@@ -1,4 +1,6 @@
-# 邑起豪好 Our Days — wedding invitation
+# 邑起豪好 Háo lucky to have Yì — wedding invitation
+
+Live: <https://our-days-wedding.pages.dev>
 
 A static recreation of the Hunbei invitation page
 (<https://h5.hunbei.com/view/A1710396f06cf>), without any of the platform
