@@ -93,6 +93,7 @@ button { font: inherit; color: inherit; }
   line-height: 2;
   letter-spacing: 0.03rem;
   text-align: center;
+  text-wrap: balance;
 }
 
 .quote-accent { color: var(--accent); }
@@ -545,7 +546,7 @@ button { font: inherit; color: inherit; }
 
 .notes-list li {
   position: relative;
-  padding-left: 0.6rem;
+  padding-left: 1.6em;
 }
 
 .notes-list li::before {
@@ -561,10 +562,17 @@ button { font: inherit; color: inherit; }
   align-items: center;
   gap: 0.5rem;
   margin-top: var(--section);
+  padding: 0 var(--pad);
 }
 
 .closing .quote { font-size: calc(0.42rem * var(--text-scale)); }
-.closing-lily { width: 2.6rem; }
+/* Same treatment as the title mountain: full width, lines lifted to match */
+.closing-mountain {
+  width: 10rem;
+  max-width: none;
+  margin: 0.2rem calc(-1 * var(--pad)) 0;
+  filter: brightness(1.15);
+}
 
 /* ---- Top bar (tabs, back to top, music) ---------------------------------- */
 
