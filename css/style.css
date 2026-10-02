@@ -223,8 +223,10 @@ button { font: inherit; color: inherit; }
 }
 
 .movie-title-en {
-  font-size: 0.56rem;
-  line-height: 1.15;
+  margin-top: 0.04rem;
+  font-size: 0.46rem;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .movie-year {
