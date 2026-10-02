@@ -467,6 +467,7 @@ button { font: inherit; color: inherit; }
   font-size: 0.28rem;
   line-height: 1.5;
   letter-spacing: 0.02rem;
+  text-wrap: balance;
 }
 
 .pair-flip .motto { text-align: right; }
