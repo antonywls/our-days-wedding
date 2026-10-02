@@ -470,7 +470,7 @@ button { font: inherit; color: inherit; }
   padding-top: 0.25rem;
   border-top: 1px solid var(--tag);
   color: var(--muted);
-  font-size: calc(0.28rem * var(--text-scale));
+  font-size: calc(0.25rem * var(--text-scale));
   line-height: 1.5;
   letter-spacing: 0.02rem;
   text-wrap: balance;
