@@ -1,15 +1,32 @@
 /*
- * Layout model (same as the original Hunbei page):
- * the page is a 375px-wide design laid out with absolute positioning in rem,
- * where 10rem = the column width. On phones the column is the full screen
- * width; on larger screens it is capped at 450px and centred.
+ * Layout: a single column that is the full screen width on phones and capped
+ * at 450px (centred) on larger screens. 1rem = 1/10 of the column width, so
+ * everything scales together. Sections flow normally; spacing comes from the
+ * tokens below.
  */
+
+:root {
+  --bg: #473529;
+  --card: rgb(59, 40, 34);
+  --text: rgb(206, 189, 181);
+  --accent: rgb(252, 224, 203);
+  --muted: rgb(149, 120, 112);
+  --tan: rgb(147, 113, 86);
+  --tag: rgb(225, 192, 161);
+  --label-bg: rgb(122, 81, 56);
+  --label-fg: rgb(230, 188, 163);
+  --line: rgb(80, 58, 50);
+
+  --pad: 0.6rem;          /* left/right page padding */
+  --gap: 0.8rem;          /* space between items inside a section */
+  --section: 2rem;        /* space between sections */
+  --radius: 0.16rem;      /* photo / card corners */
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  word-break: break-all;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -21,40 +38,161 @@ html {
 
 body {
   min-height: 100vh;
-  background: #473529;
-  font-family: "PingFang SC", "Microsoft Yahei", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "PingFang TC", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
   font-size: 12px;
   overflow-x: hidden;
 }
 
 ul { list-style: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; }
 
-/* ---- Page ---------------------------------------------------------------- */
+/* ---- Page & shared pieces ---------------------------------------------------- */
 
 .page {
   position: relative;
   width: 10rem;
   margin: 0 auto;
   overflow: hidden;
+  padding-bottom: 1.2rem;
 }
 
-.el { position: absolute; }
-
-.text p {
-  padding: 0.13333rem;
-  overflow-wrap: break-word;
-}
-
-.image { overflow: hidden; }
-.image img {
+.section {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  margin-top: var(--section);
+  padding: 0 var(--pad);
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+/* Three little squares used as a divider */
+.dots { display: flex; justify-content: center; gap: 0.16rem; }
+.dots i { width: 0.24rem; height: 0.24rem; }
+.dots i:nth-child(1) { background: rgb(113, 95, 82); }
+.dots i:nth-child(2) { background: rgb(122, 81, 56); }
+.dots i:nth-child(3) { background: rgb(31, 16, 11); }
+
+.quote {
+  font-size: 0.48rem;
+  font-weight: bold;
+  line-height: 2;
+  letter-spacing: 0.03rem;
+  text-align: center;
+}
+
+.quote-accent { color: var(--accent); }
+
+.story {
+  font-size: 0.4rem;
+  font-weight: bold;
+  line-height: 1.9;
+  letter-spacing: 0.02rem;
+  padding: 0 0.1rem;
+}
+
+.story-date {
   display: block;
-  pointer-events: none;
+  margin-bottom: 0.25rem;
+  font-size: 0.38rem;
+  color: var(--accent);
+  letter-spacing: 0.04rem;
+}
+
+.squiggle {
+  width: 4.4rem;
+  margin: 0 auto;
+}
+
+/* Brown pill heading with the little yellow sparkle, e.g. 婚禮時間 */
+.label {
+  position: relative;
+  align-self: center;
+  padding: 0.14rem 0.4rem;
+  background: var(--label-bg);
+  color: var(--label-fg);
+  font-size: 0.44rem;
+  font-weight: normal;
+  letter-spacing: 0.08rem;
+  line-height: 1.2;
+}
+
+.label::after {
+  content: "";
+  position: absolute;
+  top: -0.42rem;
+  right: -0.4rem;
+  width: 0.5rem;
+  height: 0.66rem;
+  background: url(../assets/images/26.png) center / contain no-repeat;
+}
+
+/* Fade-in as sections scroll into view (only when JS is running) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(0.4rem);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* ---- Hero -------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: min(100svh, 20rem);
+  padding: 2.6rem var(--pad) 4.4rem;
+}
+
+.hero + .section { margin-top: 0.8rem; }
+
+.hero .dots {
+  position: absolute;
+  top: 2.2rem;
+  right: var(--pad);
+}
+
+.hero-text {
+  font-size: 0.4rem;
+  font-weight: bold;
+  line-height: 2.1;
+  letter-spacing: 0.05rem;
+  text-align: right;
+}
+
+.hero-date {
+  margin-top: 0.4rem;
+  color: #fff;
+  font-size: 0.5rem;
+  font-weight: bold;
+  font-style: oblique;
+  letter-spacing: 0.12rem;
+}
+
+/* The mountain sits on the bottom edge of the first screen.
+   Move it with bottom/left, resize it with width (height follows). */
+.hero-mountain {
+  position: absolute;
+  left: -0.3rem;
+  bottom: 0.3rem;
+  width: 10.6rem;
+  max-width: none;
 }
 
 /* ---- Movie card ------------------------------------------------------------- */
 
-.movie { color: #fff; }
+.movie { gap: 0.45rem; color: #fff; }
 
 .movie-top {
   display: flex;
@@ -66,7 +204,7 @@ ul { list-style: none; }
   width: 3.2rem;
   height: 5.6rem;
   object-fit: cover;
-  border-radius: 0.08rem;
+  border-radius: var(--radius);
 }
 
 .movie-info {
@@ -92,7 +230,7 @@ ul { list-style: none; }
 .movie-year {
   margin-top: 0.08rem;
   font-size: 0.3rem;
-  color: rgb(206, 189, 181);
+  color: var(--text);
 }
 
 .movie-badge {
@@ -110,7 +248,7 @@ ul { list-style: none; }
   margin-top: 0.22rem;
   font-size: 0.26rem;
   line-height: 1.75;
-  color: rgb(206, 189, 181);
+  color: var(--text);
 }
 
 .movie-buttons {
@@ -138,10 +276,9 @@ ul { list-style: none; }
 
 .rating {
   position: relative;
-  margin-top: 0.45rem;
   padding: 0.4rem 0.45rem 0.3rem;
-  border-radius: 0.16rem;
-  background: rgb(59, 40, 34);
+  border-radius: var(--radius);
+  background: var(--card);
 }
 
 .rating-more {
@@ -150,7 +287,7 @@ ul { list-style: none; }
   right: 0.35rem;
   font-size: 0.45rem;
   line-height: 1;
-  color: rgb(206, 189, 181);
+  color: var(--text);
 }
 
 .rating-main {
@@ -187,18 +324,239 @@ ul { list-style: none; }
 
 .rating-count {
   font-size: 0.24rem;
-  color: rgb(206, 189, 181);
+  color: var(--text);
 }
 
 .rating-footer {
   margin-top: 0.3rem;
   padding-top: 0.25rem;
-  border-top: 1px solid rgb(80, 58, 50);
+  border-top: 1px solid var(--line);
   font-size: 0.26rem;
-  color: rgb(206, 189, 181);
+  color: var(--text);
 }
 
 .rating-footer .dot { margin: 0 0.15rem; }
+
+/* "Stay with me" card: tapping it toggles the music */
+.song {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+  padding: 0.3rem 0.3rem 0.3rem 0.4rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: rgb(239, 236, 233);
+  text-align: left;
+  cursor: pointer;
+}
+
+.song-text { flex: 1; display: flex; flex-direction: column; gap: 0.16rem; }
+.song-title { color: rgb(59, 40, 34); font-size: 0.45rem; font-weight: bold; }
+.song-status { color: rgb(160, 160, 160); font-size: 0.28rem; }
+.song-bars { width: 0.5rem; align-self: flex-end; margin-bottom: 0.1rem; }
+.song-cover { width: 1.6rem; height: 1.6rem; object-fit: cover; border-radius: 0.1rem; }
+
+/* ---- Intro: couple ---------------------------------------------------------------- */
+
+.couple {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.2rem 0.3rem;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.person-photo {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.person-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.person-flip .person-name { align-items: flex-end; }
+
+.person-role {
+  color: var(--muted);
+  font-size: 0.5rem;
+  font-weight: bold;
+  letter-spacing: 0.07rem;
+}
+
+.person-tag {
+  padding: 0.18rem 0.45rem;
+  background: var(--tag);
+  color: var(--tan);
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  line-height: 1.2;
+}
+
+/* ---- Chapters -------------------------------------------------------------------- */
+
+.chapter-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: -0.1rem;
+}
+
+.chapter-title {
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* small tan tag with a diagonal stroke through its corner */
+.chapter-tag {
+  position: relative;
+  padding: 0.08rem 0.3rem;
+  background: var(--tag);
+  color: var(--tan);
+  font-size: 0.36rem;
+  font-weight: bold;
+  letter-spacing: 0.08rem;
+  line-height: 1.2;
+}
+
+.chapter-tag::before {
+  content: "";
+  position: absolute;
+  left: -0.35rem;
+  top: 0.25rem;
+  width: 1rem;
+  height: 1px;
+  background: var(--muted);
+  transform: rotate(-45deg);
+}
+
+/* Two photos side by side; the column with the caption is the shorter photo */
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 0.3rem;
+  align-items: start;
+}
+
+.pair-flip { grid-template-columns: 1.2fr 1fr; }
+
+.pair-col { display: flex; flex-direction: column; gap: 0.35rem; }
+.pair-flip .pair-col { margin-top: 0.6rem; }
+
+.motto {
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--tag);
+  color: var(--muted);
+  font-size: 0.28rem;
+  line-height: 1.5;
+  letter-spacing: 0.02rem;
+}
+
+.pair-flip .motto { text-align: right; }
+
+/* ---- Invitation ------------------------------------------------------------------ */
+
+.invite { padding-top: 0.4rem; }
+
+.invite-lily {
+  position: absolute;
+  right: -0.8rem;
+  top: -0.6rem;
+  width: 6rem;
+  max-width: none;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.invite .story { position: relative; }
+
+.invite-from {
+  position: relative;
+  align-self: flex-end;
+  font-size: 0.42rem;
+  font-weight: bold;
+  letter-spacing: 0.03rem;
+}
+
+/* ---- Date, schedule, venue --------------------------------------------------------- */
+
+.info { align-items: stretch; }
+
+.info-text {
+  font-size: 0.4rem;
+  font-weight: bold;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.schedule {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+}
+
+.schedule li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.12rem;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.schedule img { height: 1.75rem; width: auto; margin-bottom: 0.1rem; }
+.schedule span { font-size: 0.38rem; }
+.schedule b { font-size: 0.34rem; }
+
+/* ---- Notes & closing ----------------------------------------------------------------- */
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.38rem;
+  font-weight: bold;
+  line-height: 1.7;
+}
+
+.notes-list li {
+  position: relative;
+  padding-left: 0.6rem;
+}
+
+.notes-list li::before {
+  content: "🫧";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.closing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--section);
+}
+
+.closing .quote { font-size: 0.42rem; }
+.closing-lily { width: 2.6rem; }
 
 /* ---- Music button ---------------------------------------------------------- */
 
@@ -212,6 +570,7 @@ ul { list-style: none; }
   border: 0;
   border-radius: 50%;
   overflow: hidden;
+  background: rgba(75, 41, 16, 0.54);
   cursor: pointer;
 }
 
@@ -238,105 +597,19 @@ ul { list-style: none; }
 
 @keyframes spin { to { transform: rotate(1turn); } }
 
-/* ---- Calendar ------------------------------------------------------------- */
-
-.calendar {
-  min-height: 8.66667rem;
-  height: auto !important;
-  padding: 0.58667rem 0;
-  border: solid var(--theme);
-}
-
-.cal-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 0.48rem 0.88rem 0.26667rem;
-  line-height: 1;
-  font-size: 0.96rem;
-  color: var(--theme);
-}
-
-.cal-top small { font-size: 0.42667rem; }
-.cal-top .cal-year { font-size: 0.53333rem; }
-
-.cal-week {
-  display: flex;
-  height: 1.06667rem;
-  line-height: 1.06667rem;
-  padding: 0 0.90667rem;
-  border-bottom: 0.02667rem solid var(--theme);
-}
-
-.cal-week span {
-  width: 14.2%;
-  text-align: center;
-  font-size: 0.32rem;
-  font-weight: 600;
-  color: var(--theme);
-}
-
-.cal-days {
-  padding: 0.13333rem 0.88rem 0;
-  font-size: 0;
-}
-
-.cal-days li {
-  position: relative;
-  display: inline-block;
-  width: 14.2%;
-  height: 0.66667rem;
-  margin-top: 0.21333rem;
-  text-align: center;
-}
-
-.cal-days li:first-child { margin-left: calc(var(--offset) * 14.2%); }
-
-.cal-days span {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  font-size: 0.34667rem;
-  color: var(--date);
-  transform: translate(-50%, -52%);
-}
-
-.cal-days li.active span {
-  font-size: 0.32rem;
-  color: var(--heart);
-}
-
-.cal-days .heart {
-  position: absolute;
-  left: 12%;
-  top: 0.05333rem;
-  width: 0.74067rem;
-  height: 0.69333rem;
-  /* heart.svg is used as a mask so it takes the heart colour */
-  background: var(--heart);
-  -webkit-mask: url(../assets/icons/heart.svg) center / contain no-repeat;
-  mask: url(../assets/icons/heart.svg) center / contain no-repeat;
-  animation: heartbeat 0.8s ease infinite alternate;
-}
-
-@keyframes heartbeat { to { transform: scale(1.2); } }
-
 /* ---- Countdown ------------------------------------------------------------ */
 
 .countdown {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.24rem;
 }
 
 .cd-box {
-  min-width: 1.33333rem;
-  margin: 0.16rem;
-  padding: 0.13333rem 0 0.16rem;
-  background: var(--box);
-  color: var(--fg);
+  padding: 0.16rem 0 0.14rem;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--bg);
 }
 
 .cd-digits {
@@ -347,14 +620,14 @@ ul { list-style: none; }
 
 .cd-digit {
   position: relative;
-  width: 0.66667rem;
+  width: 0.36rem;
   height: 0.72rem;
   overflow: hidden;
-  font-size: 0.53333rem;
+  font-size: 0.56rem;
+  font-weight: bold;
   line-height: 0.72rem;
+  text-align: center;
 }
-
-.cd-digit:first-child { text-align: right; }
 
 .cd-digit span {
   position: absolute;
@@ -371,13 +644,101 @@ ul { list-style: none; }
 .cd-digit.flip .curr { transform: translateY(100%); opacity: 0.6; }
 
 .cd-label {
-  font-size: 0.32rem;
+  font-size: 0.28rem;
   text-align: center;
   white-space: nowrap;
+  opacity: 0.8;
 }
+
+/* ---- Calendar ------------------------------------------------------------- */
+
+.calendar {
+  --theme: rgb(248, 182, 135);
+  --heart: rgb(199, 31, 49);
+  padding: 0.2rem 0 0.4rem;
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.cal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0.3rem 0.6rem 0.2rem;
+  line-height: 1;
+  font-size: 0.8rem;
+  color: var(--theme);
+}
+
+.cal-top small { font-size: 0.36rem; }
+.cal-top .cal-year { font-size: 0.44rem; }
+
+.cal-week {
+  display: flex;
+  height: 0.9rem;
+  line-height: 0.9rem;
+  margin: 0 0.5rem;
+  border-bottom: 1px solid var(--theme);
+}
+
+.cal-week span {
+  width: calc(100% / 7);
+  text-align: center;
+  font-size: 0.3rem;
+  font-weight: 600;
+  color: var(--theme);
+}
+
+.cal-days {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.1rem 0.5rem 0;
+}
+
+.cal-days li {
+  position: relative;
+  width: calc(100% / 7);
+  height: 0.62rem;
+  margin-top: 0.14rem;
+}
+
+.cal-days li:first-child { margin-left: calc(var(--offset) * 100% / 7); }
+
+.cal-days span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  font-size: 0.32rem;
+  color: var(--theme);
+  transform: translate(-50%, -50%);
+}
+
+.cal-days li.active span {
+  color: var(--heart);
+  font-size: 0.28rem;
+  font-weight: bold;
+}
+
+.cal-days .heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.66rem;
+  height: 0.62rem;
+  margin: -0.31rem 0 0 -0.33rem;
+  /* heart.svg is used as a mask so it takes the heart colour */
+  background: var(--heart);
+  -webkit-mask: url(../assets/icons/heart.svg) center / contain no-repeat;
+  mask: url(../assets/icons/heart.svg) center / contain no-repeat;
+  animation: heartbeat 0.8s ease infinite alternate;
+}
+
+@keyframes heartbeat { to { transform: scale(1.2); } }
 
 @media (prefers-reduced-motion: reduce) {
   .music.playing img,
   .cal-days .heart { animation: none; }
   .cd-digit.flip span { transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
 }

@@ -17,34 +17,30 @@ local, so nothing depends on Hunbei.
 
 ## How the page works
 
-- The original is a 375px-wide design with every element absolutely
-  positioned. That is kept as-is: positions are in `rem`, where
-  `10rem` = column width (full screen on phones, max 450px on desktop).
-  See `css/style.css`.
+- `index.html` is hand-written, one `<section>` per part of the story, in
+  normal document flow. Sizes are in `rem`, where `10rem` = column width
+  (full screen on phones, max 450px on desktop), so everything scales together.
+- `css/style.css`: spacing/colour tokens at the top (`--pad`, `--gap`,
+  `--section`, `--radius`, colours), then one block per section.
+- `css/fonts.css`: 星光小熊貓體 (story text), Alibaba PuHuiTi (Latin in the
+  movie/music cards), plus the original Hunbei fonts for the chapter titles.
 - `js/main.js`: background music (starts on first tap, since browsers block
-  autoplay), slow auto-scroll like the original (stops when the visitor
-  touches/scrolls; set `AUTO_SCROLL_SECONDS = 0` to disable), and the
-  countdown (Taipei time).
+  autoplay; the music button and the "Stay with me" card toggle it), slow
+  auto-scroll (stops when the visitor touches/scrolls; set
+  `AUTO_SCROLL_SECONDS = 0` to disable), the countdown (Taipei time) and the
+  fade-in of `.reveal` elements.
 
-## Re-syncing from Hunbei
+## Fonts are subsets
 
-While the content is still being edited on Hunbei:
+The font files only contain the characters currently on the page, to keep
+them small. New text with characters that aren't on the page yet will show
+those characters in a fallback font until the subset is regenerated (with
+`pyftsubset` from the full font file).
 
-```sh
-npm install
-npm run sync
-```
+## Hunbei origin
 
-This re-renders the live page in Chrome and regenerates `index.html`,
-`css/fonts.css`, `assets/images/` and `assets/fonts/`. **It overwrites any hand
-edits to those files.**
-
-Notes:
-- Hunbei fonts are subsets containing only the characters used on the page.
-  Adding new text by hand may show some characters in a fallback font —
-  re-sync after editing on Hunbei instead, or get the full font files.
-- Photos are the full-resolution originals uploaded to Hunbei, cropped locally
-  to the framing chosen in the editor (Hunbei's own crops are heavily
-  compressed), then capped at 1600px on the long side.
-  `assets/images/manifest.json` maps each file to its source URL (including
-  crop).
+The first version was generated from the Hunbei page by
+`tools/sync-from-hunbei.mjs`. The page has since been redesigned by hand, so
+that tool is kept for reference only — running it would overwrite
+`index.html`. `assets/images/manifest.json` maps the photos to their Hunbei
+source URLs.

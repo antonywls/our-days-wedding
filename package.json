@@ -3,7 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "sync": "node tools/sync-from-hunbei.mjs",
     "start": "npx --yes serve ."
   },
   "devDependencies": {

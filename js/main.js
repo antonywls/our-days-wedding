@@ -8,15 +8,15 @@ const musicBtn = document.getElementById('music');
 bgm.addEventListener('play', () => musicBtn.classList.add('playing'));
 bgm.addEventListener('pause', () => musicBtn.classList.remove('playing'));
 
-musicBtn.addEventListener('click', () => {
-  if (bgm.paused) bgm.play(); else bgm.pause();
-});
+const toggleMusic = () => { if (bgm.paused) bgm.play(); else bgm.pause(); };
+musicBtn.addEventListener('click', toggleMusic);
+document.getElementById('song').addEventListener('click', toggleMusic);
 
 function startOnFirstInteraction() {
   const events = ['pointerdown', 'touchend', 'keydown'];
   const start = (e) => {
     events.forEach((type) => document.removeEventListener(type, start, true));
-    if (!musicBtn.contains(e.target) && bgm.paused) bgm.play().catch(() => {});
+    if (!e.target.closest('#music, #song') && bgm.paused) bgm.play().catch(() => {});
   };
   events.forEach((type) => document.addEventListener(type, start, true));
 }
@@ -97,3 +97,16 @@ for (const el of document.querySelectorAll('.countdown')) {
   tick();
   setInterval(tick, 1000);
 }
+
+// ---- Fade-in on scroll -------------------------------------------------------------
+
+const revealObserver = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  }
+}, { rootMargin: '0px 0px -8% 0px' });
+
+document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
