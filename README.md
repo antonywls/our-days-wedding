@@ -43,6 +43,7 @@ Notes:
 - Hunbei fonts are subsets containing only the characters used on the page.
   Adding new text by hand may show some characters in a fallback font —
   re-sync after editing on Hunbei instead, or get the full font files.
-- Photos are downloaded with the crop from the Hunbei editor and resized for a
-  2x screen. `assets/images/manifest.json` maps each file to its source URL
-  (including crop), for swapping in high-res originals.
+- Photos are the full-resolution originals uploaded to Hunbei, cropped locally
+  to the framing chosen in the editor (Hunbei's own crops are heavily
+  compressed). `assets/images/manifest.json` maps each file to its source URL
+  (including crop).

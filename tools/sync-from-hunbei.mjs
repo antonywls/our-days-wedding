@@ -7,7 +7,7 @@
 // stop using this script (or port your edits over).
 //
 // Requires Google Chrome (driven via puppeteer-core) and macOS `sips` for
-// resizing photos.
+// cropping photos.
 
 import puppeteer from 'puppeteer-core';
 import { execFileSync } from 'node:child_process';
@@ -19,8 +19,6 @@ const SCENE_URL = 'https://h5.hunbei.com/view/A1710396f06cf';
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DESIGN_REM = 37.5;       // Hunbei designs at 375px wide = 10rem
-const MAX_REM_PX = 45;         // css/style.css caps 1rem at 45px (450px column)
-const DPR = 2;                 // export photos for 2x screens
 
 const rem = (px) => `${+(px / DESIGN_REM).toFixed(4)}rem`;
 const num = (v) => parseFloat(v);
@@ -119,6 +117,18 @@ function fullResUrl(src) {
     .replace(/\/thumbnail\/[^/]*/, '')
     .replace(/\/format\/\w+/, '');
   return firstStep ? `${base}?${firstStep}` : base;
+}
+
+// Qiniu re-encodes its crops at low quality, so fetch the untouched original
+// and apply the editor's crop (`crop/!WxHaXaY`) locally instead.
+async function downloadOriginalPhoto(url, dest) {
+  const [base, query = ''] = url.split('?');
+  await download(base, dest);
+  const m = query.match(/\/crop\/!(\d+)x(\d+)a(\d+)a(\d+)/);
+  if (m) {
+    const [, w, h, x, y] = m;
+    execFileSync('sips', ['-c', h, w, '--cropOffset', y, x, '-s', 'formatOptions', '92', dest, '--out', dest], { stdio: 'ignore' });
+  }
 }
 
 function styleMap(style) {
@@ -263,12 +273,8 @@ async function main() {
         const isPhoto = ext === '.jpg' || ext === '.jpeg';
         file = `${String(++n).padStart(2, '0')}${isPhoto ? '.jpg' : ext}`;
         const dest = path.join(imgDir, file);
-        await download(url, dest);
-        if (isPhoto) {
-          // Longest side needed at the 450px column on a 2x screen.
-          const need = Math.ceil(Math.max(num(img.width), num(img.height)) / DESIGN_REM * MAX_REM_PX * DPR);
-          execFileSync('sips', ['-Z', String(need), '-s', 'format', 'jpeg', '-s', 'formatOptions', '82', dest, '--out', dest], { stdio: 'ignore' });
-        }
+        if (isPhoto) await downloadOriginalPhoto(url, dest);
+        else await download(url, dest);
         bySrc.set(url, file);
         manifest.push({ file, source: url });
       }
