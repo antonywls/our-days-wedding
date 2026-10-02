@@ -12,9 +12,21 @@
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <button id="music" class="music" type="button" aria-label="播放 / 暫停音樂">
-    <img src="assets/icons/music.png" alt="">
-  </button>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <div class="tabs f-qssxt">
+        <a class="tab" href="#date">婚禮時間</a>
+        <a class="tab" href="#venue">婚宴地址</a>
+        <a class="tab" href="#notes">新人悄悄話</a>
+      </div>
+      <button class="to-top" id="to-top" type="button" aria-label="回到頂部">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6"/></svg>
+      </button>
+      <button id="music" class="music" type="button" aria-label="播放 / 暫停音樂">
+        <img src="assets/icons/music.png" alt="">
+      </button>
+    </div>
+  </nav>
   <audio id="bgm" src="assets/audio/music.mp3" loop preload="none"></audio>
 
   <main class="page">
@@ -228,7 +240,7 @@
     </section>
 
     <!-- ===== Date & schedule ==================================================== -->
-    <section class="section info">
+    <section class="section info" id="date">
       <h2 class="label f-qssxt reveal">婚禮時間</h2>
       <p class="info-text f-qssxt reveal">
         2026年12月12日 星期六<br>
@@ -288,7 +300,7 @@
     </section>
 
     <!-- ===== Venue ============================================================== -->
-    <section class="section info">
+    <section class="section info" id="venue">
       <h2 class="label f-qssxt reveal">婚宴地址</h2>
       <p class="info-text f-qssxt reveal">
         格萊天漾大飯店　15F　天闊廳<br>
@@ -298,7 +310,7 @@
     </section>
 
     <!-- ===== Notes ============================================================== -->
-    <section class="section notes">
+    <section class="section notes" id="notes">
       <h2 class="label f-qssxt reveal">新人悄悄話</h2>
       <img class="photo reveal" src="assets/images/23.jpg" alt="">
       <ul class="notes-list f-qssxt reveal">

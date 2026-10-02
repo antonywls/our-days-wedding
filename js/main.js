@@ -46,7 +46,7 @@ if (AUTO_SCROLL_SECONDS > 0 && !matchMedia('(prefers-reduced-motion: reduce)').m
     const max = document.documentElement.scrollHeight - window.innerHeight;
     if (last !== null) {
       y = Math.min(max, y + (max / AUTO_SCROLL_SECONDS) * ((t - last) / 1000));
-      window.scrollTo(0, y);
+      window.scrollTo({ top: y, behavior: 'instant' });
     }
     last = t;
     if (y < max) requestAnimationFrame(step);
@@ -110,3 +110,25 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: '0px 0px -8% 0px' });
 
 document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+// ---- Top bar: back to top + highlight the tab of the section in view --------------
+
+document.getElementById('to-top').addEventListener('click', () => window.scrollTo({ top: 0 }));
+
+const tabs = [...document.querySelectorAll('.tab')];
+const tabSections = tabs.map((tab) => document.querySelector(tab.getAttribute('href')));
+
+const highlightTab = () => {
+  const line = window.innerHeight * 0.35;
+  let current = -1;
+  tabSections.forEach((section, i) => {
+    if (section.getBoundingClientRect().top <= line) current = i;
+  });
+  // past the bottom of the last section: nothing active
+  const last = tabSections[tabSections.length - 1];
+  if (current === tabs.length - 1 && last.getBoundingClientRect().bottom < 0) current = -1;
+  tabs.forEach((tab, i) => tab.classList.toggle('active', i === current));
+};
+
+window.addEventListener('scroll', highlightTab, { passive: true });
+highlightTab();
