@@ -1,0 +1,10 @@
+# Not part of the website: keep these out of the Cloudflare upload.
+.git
+.gitignore
+.DS_Store
+node_modules
+tools
+package.json
+package-lock.json
+README.md
+wrangler.jsonc

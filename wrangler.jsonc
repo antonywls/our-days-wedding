@@ -1,0 +1,9 @@
+// Cloudflare Workers static-assets deploy. Files listed in .assetsignore
+// (node_modules, the sync tool, etc.) are not uploaded.
+{
+  "name": "our-days-wedding",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "."
+  }
+}
