@@ -52,6 +52,154 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
+/* ---- Movie card ------------------------------------------------------------- */
+
+.movie { color: #fff; }
+
+.movie-top {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.movie-poster {
+  flex: none;
+  width: 3.2rem;
+  height: 5.6rem;
+  object-fit: cover;
+  border-radius: 0.08rem;
+}
+
+.movie-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.movie-title {
+  font-size: 0.6rem;
+  font-weight: bold;
+  line-height: 1.15;
+  letter-spacing: 0.04rem;
+}
+
+.movie-title-en {
+  font-size: 0.56rem;
+  line-height: 1.15;
+}
+
+.movie-year {
+  margin-top: 0.08rem;
+  font-size: 0.3rem;
+  color: rgb(206, 189, 181);
+}
+
+.movie-badge {
+  margin-top: 0.22rem;
+  padding: 0.07rem 0.2rem;
+  border-radius: 0.06rem;
+  background: rgb(250, 208, 148);
+  color: rgb(145, 97, 31);
+  font-size: 0.26rem;
+  font-weight: bold;
+  letter-spacing: 0.03rem;
+}
+
+.movie-meta {
+  margin-top: 0.22rem;
+  font-size: 0.26rem;
+  line-height: 1.75;
+  color: rgb(206, 189, 181);
+}
+
+.movie-buttons {
+  margin-top: auto;
+  display: flex;
+  gap: 0.24rem;
+  align-self: stretch;
+}
+
+.movie-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  height: 0.8rem;
+  border-radius: 0.13rem;
+  background: #fff;
+  color: #000;
+  font-size: 0.32rem;
+  font-weight: bold;
+}
+
+.movie-btn img { width: 0.4rem; height: 0.4rem; }
+
+.rating {
+  position: relative;
+  margin-top: 0.45rem;
+  padding: 0.4rem 0.45rem 0.3rem;
+  border-radius: 0.16rem;
+  background: rgb(59, 40, 34);
+}
+
+.rating-more {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.35rem;
+  font-size: 0.45rem;
+  line-height: 1;
+  color: rgb(206, 189, 181);
+}
+
+.rating-main {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.rating-score {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.12rem;
+}
+
+.rating-number {
+  font-size: 1.15rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.rating-score img { width: 1.6rem; }
+
+.rating-bars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+}
+
+.rating-bars img { width: 100%; }
+
+.rating-count {
+  font-size: 0.24rem;
+  color: rgb(206, 189, 181);
+}
+
+.rating-footer {
+  margin-top: 0.3rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgb(80, 58, 50);
+  font-size: 0.26rem;
+  color: rgb(206, 189, 181);
+}
+
+.rating-footer .dot { margin: 0 0.15rem; }
+
 /* ---- Music button ---------------------------------------------------------- */
 
 .music {
