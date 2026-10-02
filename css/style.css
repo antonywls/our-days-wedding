@@ -1,0 +1,235 @@
+/*
+ * Layout model (same as the original Hunbei page):
+ * the page is a 375px-wide design laid out with absolute positioning in rem,
+ * where 10rem = the column width. On phones the column is the full screen
+ * width; on larger screens it is capped at 450px and centred.
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-break: break-all;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: min(10vw, 45px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: #473529;
+  font-family: "PingFang SC", "Microsoft Yahei", "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  overflow-x: hidden;
+}
+
+ul { list-style: none; }
+
+/* ---- Page ---------------------------------------------------------------- */
+
+.page {
+  position: relative;
+  width: 10rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.el { position: absolute; }
+
+.text p {
+  padding: 0.13333rem;
+  overflow-wrap: break-word;
+}
+
+.image { overflow: hidden; }
+.image img {
+  position: relative;
+  display: block;
+  pointer-events: none;
+}
+
+/* ---- Music button ---------------------------------------------------------- */
+
+.music {
+  position: fixed;
+  z-index: 10;
+  top: 0.26667rem;
+  right: max(0.26667rem, calc((100vw - 10rem) / 2 + 0.26667rem));
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.music img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.music.playing img { animation: spin 5s linear infinite; }
+
+/* Diagonal strike-through while paused */
+.music:not(.playing)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 0.05333rem;
+  margin-top: -0.02667rem;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+@keyframes spin { to { transform: rotate(1turn); } }
+
+/* ---- Calendar ------------------------------------------------------------- */
+
+.calendar {
+  min-height: 8.66667rem;
+  height: auto !important;
+  padding: 0.58667rem 0;
+  border: solid var(--theme);
+}
+
+.cal-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0.48rem 0.88rem 0.26667rem;
+  line-height: 1;
+  font-size: 0.96rem;
+  color: var(--theme);
+}
+
+.cal-top small { font-size: 0.42667rem; }
+.cal-top .cal-year { font-size: 0.53333rem; }
+
+.cal-week {
+  display: flex;
+  height: 1.06667rem;
+  line-height: 1.06667rem;
+  padding: 0 0.90667rem;
+  border-bottom: 0.02667rem solid var(--theme);
+}
+
+.cal-week span {
+  width: 14.2%;
+  text-align: center;
+  font-size: 0.32rem;
+  font-weight: 600;
+  color: var(--theme);
+}
+
+.cal-days {
+  padding: 0.13333rem 0.88rem 0;
+  font-size: 0;
+}
+
+.cal-days li {
+  position: relative;
+  display: inline-block;
+  width: 14.2%;
+  height: 0.66667rem;
+  margin-top: 0.21333rem;
+  text-align: center;
+}
+
+.cal-days li:first-child { margin-left: calc(var(--offset) * 14.2%); }
+
+.cal-days span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  font-size: 0.34667rem;
+  color: var(--date);
+  transform: translate(-50%, -52%);
+}
+
+.cal-days li.active span {
+  font-size: 0.32rem;
+  color: var(--heart);
+}
+
+.cal-days .heart {
+  position: absolute;
+  left: 12%;
+  top: 0.05333rem;
+  width: 0.74067rem;
+  height: 0.69333rem;
+  /* heart.svg is used as a mask so it takes the heart colour */
+  background: var(--heart);
+  -webkit-mask: url(../assets/icons/heart.svg) center / contain no-repeat;
+  mask: url(../assets/icons/heart.svg) center / contain no-repeat;
+  animation: heartbeat 0.8s ease infinite alternate;
+}
+
+@keyframes heartbeat { to { transform: scale(1.2); } }
+
+/* ---- Countdown ------------------------------------------------------------ */
+
+.countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cd-box {
+  min-width: 1.33333rem;
+  margin: 0.16rem;
+  padding: 0.13333rem 0 0.16rem;
+  background: var(--box);
+  color: var(--fg);
+}
+
+.cd-digits {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cd-digit {
+  position: relative;
+  width: 0.66667rem;
+  height: 0.72rem;
+  overflow: hidden;
+  font-size: 0.53333rem;
+  line-height: 0.72rem;
+}
+
+.cd-digit:first-child { text-align: right; }
+
+.cd-digit span {
+  position: absolute;
+  inset: 0 0 auto;
+  text-align: inherit;
+}
+
+.cd-digit .next { transform: translateY(-100%); }
+
+.cd-digit.flip span {
+  transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
+}
+.cd-digit.flip .next { transform: translateY(0); }
+.cd-digit.flip .curr { transform: translateY(100%); opacity: 0.6; }
+
+.cd-label {
+  font-size: 0.32rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music.playing img,
+  .cal-days .heart { animation: none; }
+  .cd-digit.flip span { transition: none; }
+}
