@@ -14,15 +14,23 @@
 <body>
   <nav class="topbar">
     <div class="topbar-inner">
-      <div class="tabs f-qssxt">
-        <a class="tab" href="#date">婚禮時間</a>
-        <a class="tab" href="#venue">婚宴地址</a>
-        <a class="tab" href="#notes">新人悄悄話</a>
+      <div class="lang">
+        <button class="lang-btn" id="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="語言 / Language">繁</button>
+        <ul class="lang-menu" id="lang-menu" hidden>
+          <li><button type="button" data-lang="zh">繁體中文</button></li>
+          <li><button type="button" data-lang="yue">廣東話</button></li>
+          <li><button type="button" data-lang="en">English</button></li>
+        </ul>
       </div>
-      <button class="to-top" id="to-top" type="button" aria-label="回到頂部">
+      <div class="tabs f-qssxt">
+        <a data-i18n="tab.date" class="tab" href="#date">婚禮時間</a>
+        <a data-i18n="tab.venue" class="tab" href="#venue">婚宴地址</a>
+        <a data-i18n="tab.notes" class="tab" href="#notes">新人悄悄話</a>
+      </div>
+      <button class="to-top" id="to-top" type="button" aria-label="回到頂部" data-i18n-aria="aria.top">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6"/></svg>
       </button>
-      <button id="music" class="music" type="button" aria-label="播放 / 暫停音樂">
+      <button id="music" class="music" type="button" aria-label="播放 / 暫停音樂" data-i18n-aria="aria.music">
         <img src="assets/icons/music.png" alt="">
       </button>
     </div>
@@ -34,7 +42,7 @@
     <!-- ===== Hero ============================================================ -->
     <header class="hero">
       <div class="dots dots-right"><i></i><i></i><i></i></div>
-      <p class="hero-text f-qssxt">
+      <p data-i18n="hero" class="hero-text f-qssxt">
         嗨～收到這封喜帖的你<br>
         我們的婚禮，真的要到了！<br>
         <br>
@@ -58,10 +66,10 @@
           <p class="movie-title-en">Háo lucky to have Yì</p>
           <p class="movie-year">(2026)</p>
           <span class="movie-badge">NO.1</span>
-          <p class="movie-meta">台灣 / 愛情 劇情 / 2026.12.12<br>上映 / 片長 135 分鐘</p>
+          <p data-i18n="movie.meta" class="movie-meta">台灣 / 愛情 劇情 / 2026.12.12<br>上映 / 片長 135 分鐘</p>
           <div class="movie-buttons">
-            <span class="movie-btn"><img src="assets/images/04.png" alt="">想看</span>
-            <span class="movie-btn"><img src="assets/images/05.png" alt="">看過</span>
+            <span class="movie-btn"><img src="assets/images/04.png" alt=""><span data-i18n="movie.want">想看</span></span>
+            <span class="movie-btn"><img src="assets/images/05.png" alt=""><span data-i18n="movie.seen">看過</span></span>
           </div>
         </div>
       </div>
@@ -74,15 +82,15 @@
           </div>
           <div class="rating-bars">
             <img src="assets/images/06.png" alt="">
-            <span class="rating-count">5201314人評分</span>
+            <span data-i18n="rating.count" class="rating-count">5201314人評分</span>
           </div>
         </div>
-        <p class="rating-footer">131.4萬人看過<span class="dot">·</span>52.1萬人想看</p>
+        <p data-i18n="rating.footer" class="rating-footer">131.4萬人看過<span class="dot">·</span>52.1萬人想看</p>
       </div>
       <button class="song" id="song" type="button">
         <span class="song-text">
           <span class="song-title">Stay with me</span>
-          <span class="song-status">正在播放歌曲.....</span>
+          <span data-i18n="song.status" class="song-status">正在播放歌曲.....</span>
         </span>
         <img class="song-bars" src="assets/images/25.gif" alt="">
         <img class="song-cover" src="assets/images/24.jpg" alt="">
@@ -93,7 +101,7 @@
     <section class="section intro">
       <div class="dots"><i></i><i></i><i></i></div>
       <img class="photo reveal" src="assets/images/08.jpg" alt="">
-      <p class="quote f-qssxt reveal">
+      <p data-i18n="intro.quote1" class="quote f-qssxt reveal">
         一聲招呼，一次見面。<br>
         兩個原本沒有交集的人，<br>
         開始有了共同的日常。
@@ -102,7 +110,7 @@
       <div class="couple">
         <div class="person reveal">
           <div class="person-name">
-            <span class="person-role f-qssxt">新郎</span>
+            <span data-i18n="role.groom" class="person-role f-qssxt">新郎</span>
             <span class="person-tag f-qssxt">關永豪</span>
           </div>
           <img class="person-photo" src="assets/images/09.jpg" alt="">
@@ -110,13 +118,13 @@
         <div class="person person-flip reveal">
           <img class="person-photo" src="assets/images/10.jpg" alt="">
           <div class="person-name">
-            <span class="person-role f-qssxt">新娘</span>
+            <span data-i18n="role.bride" class="person-role f-qssxt">新娘</span>
             <span class="person-tag f-qssxt">張邑如</span>
           </div>
         </div>
       </div>
 
-      <p class="quote quote-accent f-qssxt reveal">
+      <p data-i18n="intro.quote2" class="quote quote-accent f-qssxt reveal">
         這是一部由他與她親自出演，<br>
         且故事仍在進行的電影。
       </p>
@@ -127,7 +135,7 @@
     <section class="section chapter">
       <h2 class="chapter-head reveal">
         <span class="chapter-title f-waitingforthesunrise">Chapter 1</span>
-        <span class="chapter-tag f-qssxt">相遇</span>
+        <span data-i18n="ch1.tag" class="chapter-tag f-qssxt">相遇</span>
       </h2>
       <div class="pair reveal">
         <div class="pair-col">
@@ -136,7 +144,7 @@
         </div>
         <img class="photo" src="assets/images/13.jpg" alt="">
       </div>
-      <p class="story f-qssxt reveal">
+      <p data-i18n="ch1.story1" class="story f-qssxt reveal">
         <span class="story-date">2024/10/11</span>
         一句「嗨」之後，他們坐在同一張餐桌前。<br>
         他紅著臉；她心裡不解。<br>
@@ -149,7 +157,7 @@
         彼此會成為往後想每天見面的人。
       </p>
       <img class="photo reveal" src="assets/images/14.jpg" alt="">
-      <p class="story f-qssxt reveal">
+      <p data-i18n="ch1.story2" class="story f-qssxt reveal">
         她陪著孩子們出發上山前，<br>
         那一袋仔細準備，那一次認真交代，<br>
         那些沒被情話打動的時刻，<br>
@@ -161,7 +169,7 @@
     <section class="section chapter">
       <h2 class="chapter-head chapter-head-right reveal">
         <span class="chapter-title f-waitingforthesunrise">Chapter 2</span>
-        <span class="chapter-tag f-qssxt">相戀</span>
+        <span data-i18n="ch2.tag" class="chapter-tag f-qssxt">相戀</span>
       </h2>
       <div class="pair pair-flip reveal">
         <img class="photo" src="assets/images/16.jpg" alt="">
@@ -170,7 +178,7 @@
           <p class="motto f-card">hand in hand, day after day</p>
         </div>
       </div>
-      <p class="story f-qssxt reveal">
+      <p data-i18n="ch2.story" class="story f-qssxt reveal">
         <span class="story-date">2024.12.14｜兩人的故事</span>
         一隻巨大的維尼，和一段真摯的告白。<br>
         <br>
@@ -187,7 +195,7 @@
     <section class="section chapter">
       <h2 class="chapter-head reveal">
         <span class="chapter-title f-waitingforthesunrise">Chapter 3</span>
-        <span class="chapter-tag f-qssxt">相伴</span>
+        <span data-i18n="ch3.tag" class="chapter-tag f-qssxt">相伴</span>
       </h2>
       <div class="pair reveal">
         <div class="pair-col">
@@ -196,7 +204,7 @@
         </div>
         <img class="photo" src="assets/images/19.jpg" alt="">
       </div>
-      <p class="story f-qssxt reveal">
+      <p data-i18n="ch3.story1" class="story f-qssxt reveal">
         <span class="story-date">2026.07.21｜故事未完，待續</span>
         相識的時間不算長，<br>
         相處卻熟悉得像已經走過好多年。<br>
@@ -206,7 +214,7 @@
       </p>
       <img class="photo reveal" src="assets/images/20.jpg" alt="">
       <img class="squiggle" src="assets/images/02.png" alt="">
-      <p class="story f-qssxt reveal">
+      <p data-i18n="ch3.story2" class="story f-qssxt reveal">
         <span class="story-date">2026.12.12｜首映之日</span>
         在成為「他們」以前，<br>
         他與她的故事裡，<br>
@@ -222,7 +230,7 @@
     <!-- ===== Invitation ======================================================== -->
     <section class="section invite">
       <img class="invite-lily" src="assets/images/01.png" alt="">
-      <p class="story f-qssxt reveal">
+      <p data-i18n="invite.text" class="story f-qssxt reveal">
         這一天，<br>
         他們偕同雙方父母，<br>
         誠摯邀請親愛的家人與朋友，<br>
@@ -235,28 +243,28 @@
         《邑起豪好》<br>
         故事仍在繼續，敬邀入席。
       </p>
-      <p class="invite-from f-qssxt reveal">邀請人：關永豪&amp;張邑如</p>
+      <p data-i18n="invite.from" class="invite-from f-qssxt reveal">邀請人：關永豪&amp;張邑如</p>
       <img class="photo reveal" src="assets/images/22.jpg" alt="">
     </section>
 
     <!-- ===== Date & schedule ==================================================== -->
     <section class="section info" id="date">
-      <h2 class="label f-qssxt reveal">婚禮時間</h2>
-      <p class="info-text f-qssxt reveal">
+      <h2 data-i18n="label.date" class="label f-qssxt reveal">婚禮時間</h2>
+      <p data-i18n="info.date" class="info-text f-qssxt reveal">
         2026年12月12日 星期六<br>
         農曆十一月初四 12:00
       </p>
 
       <div class="countdown reveal" data-target="2026-12-12T12:00:00+08:00">
-        <div class="cd-box" data-unit="days"><div class="cd-digits"></div><div class="cd-label">天</div></div>
-        <div class="cd-box" data-unit="hours"><div class="cd-digits"></div><div class="cd-label">時</div></div>
-        <div class="cd-box" data-unit="minutes"><div class="cd-digits"></div><div class="cd-label">分</div></div>
-        <div class="cd-box" data-unit="seconds"><div class="cd-digits"></div><div class="cd-label">秒</div></div>
+        <div class="cd-box" data-unit="days"><div class="cd-digits"></div><div data-i18n="cd.days" class="cd-label">天</div></div>
+        <div class="cd-box" data-unit="hours"><div class="cd-digits"></div><div data-i18n="cd.hours" class="cd-label">時</div></div>
+        <div class="cd-box" data-unit="minutes"><div class="cd-digits"></div><div data-i18n="cd.minutes" class="cd-label">分</div></div>
+        <div class="cd-box" data-unit="seconds"><div class="cd-digits"></div><div data-i18n="cd.seconds" class="cd-label">秒</div></div>
       </div>
 
       <div class="calendar reveal">
         <div class="cal-top"><span class="cal-month">12 <small>/ 12</small></span><span class="cal-year">-2026-</span></div>
-        <div class="cal-week"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+        <div data-i18n="cal.week" class="cal-week"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
         <ul class="cal-days" style="--offset: 1">
           <li><span>1</span></li>
           <li><span>2</span></li>
@@ -293,16 +301,16 @@
       </div>
 
       <ul class="schedule reveal">
-        <li><img src="assets/images/30.png" alt=""><span class="f-qssxt">文定儀式</span><b class="f-qssxt">10：00</b></li>
-        <li><img src="assets/images/28.png" alt=""><span class="f-qssxt">入席時間</span><b class="f-qssxt">12：00</b></li>
-        <li><img src="assets/images/29.png" alt=""><span class="f-qssxt">開席時間</span><b class="f-qssxt">12：30</b></li>
+        <li><img src="assets/images/30.png" alt=""><span data-i18n="sched.1" class="f-qssxt">文定儀式</span><b class="f-qssxt">10：00</b></li>
+        <li><img src="assets/images/28.png" alt=""><span data-i18n="sched.2" class="f-qssxt">入席時間</span><b class="f-qssxt">12：00</b></li>
+        <li><img src="assets/images/29.png" alt=""><span data-i18n="sched.3" class="f-qssxt">開席時間</span><b class="f-qssxt">12：30</b></li>
       </ul>
     </section>
 
     <!-- ===== Venue ============================================================== -->
     <section class="section info" id="venue">
-      <h2 class="label f-qssxt reveal">婚宴地址</h2>
-      <p class="info-text f-qssxt reveal">
+      <h2 data-i18n="label.venue" class="label f-qssxt reveal">婚宴地址</h2>
+      <p data-i18n="info.venue" class="info-text f-qssxt reveal">
         格萊天漾大飯店　15F　天闊廳<br>
         108臺北市萬華區富福里艋舺大道101號
       </p>
@@ -311,9 +319,9 @@
 
     <!-- ===== Notes ============================================================== -->
     <section class="section notes" id="notes">
-      <h2 class="label f-qssxt reveal">新人悄悄話</h2>
+      <h2 data-i18n="label.notes" class="label f-qssxt reveal">新人悄悄話</h2>
       <img class="photo reveal" src="assets/images/23.jpg" alt="">
-      <ul class="notes-list f-qssxt reveal">
+      <ul data-i18n="notes" class="notes-list f-qssxt reveal">
         <li>如果你身在不同的城市，或因繁忙的工作無法到達儀式現場，沒有關係，我們已經收到祝福了喔😊</li>
         <li>簽到大廳設有拍拍印機台，想玩拍貼機的朋友們可以早些抵達，期待帥帥／美美的現場留影哦！</li>
         <li>現場也設有點點酒機台，提供含酒精及無酒精飲料各3款，大家可以盡情暢飲～</li>
@@ -325,7 +333,7 @@
     <!-- ===== Closing ============================================================ -->
     <footer class="closing reveal">
       <img class="squiggle" src="assets/images/02.png" alt="">
-      <p class="quote f-qssxt">
+      <p data-i18n="closing" class="quote f-qssxt">
         婚禮忙碌<br>
         如若我們招待不周<br>
         請多多包涵！
@@ -335,6 +343,7 @@
 
   </main>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

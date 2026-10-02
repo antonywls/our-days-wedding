@@ -2,6 +2,7 @@
    characters used on the page, so new characters may fall back to system fonts. */
 @font-face { font-family: starpandakids; src: url(../assets/fonts/starpandakids.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: puhuiti; src: url(../assets/fonts/puhuiti-latin.woff2) format("woff2"); unicode-range: U+0020-007E, U+00A0-00FF, U+2018-201D, U+2026; font-display: swap; }
+@font-face { font-family: chubbycrayon; src: url(../assets/fonts/chubbycrayon.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: qssxt_1; src: url(../assets/fonts/qssxt_1.ttf); font-display: swap; }
 @font-face { font-family: qssxt_2; src: url(../assets/fonts/qssxt_2.ttf); font-display: swap; }
 @font-face { font-family: liuhuankatongshoushu_1; src: url(../assets/fonts/liuhuankatongshoushu_1.ttf); font-display: swap; }
@@ -19,3 +20,16 @@
 /* Movie card + music card: Alibaba PuHuiTi for Latin, system sans for Chinese
    (Microsoft YaHei on Windows, PingFang on Apple). */
 .f-card { font-family: puhuiti, "Microsoft YaHei", "PingFang TC", sans-serif; }
+
+/* English: Chubby Crayon for the handwriting parts. It has no digits or
+   symbols, so those fall through to 星光小熊貓體. */
+html[lang="en"] .f-qssxt {
+  font-family: chubbycrayon, starpandakids, qssxt_1, qssxt_2, serif;
+  font-weight: normal;
+  letter-spacing: 0.01rem;
+  font-size-adjust: 0.47;   /* ~20% larger than the font's natural size */
+}
+html[lang="en"] .story,
+html[lang="en"] .hero-text,
+html[lang="en"] .notes-list { line-height: 1.65; }
+html[lang="en"] .story { text-wrap: pretty; }

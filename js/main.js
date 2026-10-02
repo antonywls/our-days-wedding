@@ -132,3 +132,62 @@ const highlightTab = () => {
 
 window.addEventListener('scroll', highlightTab, { passive: true });
 highlightTab();
+
+// ---- Language ------------------------------------------------------------------------
+// 繁體中文 is the text in index.html; js/i18n.js holds 廣東話 and English.
+// Pick with the top-left menu, or link to ?lang=yue / ?lang=en.
+
+const LANGS = {
+  zh: { short: '繁', htmlLang: 'zh-Hant' },
+  yue: { short: '粵', htmlLang: 'yue-Hant' },
+  en: { short: 'EN', htmlLang: 'en' },
+};
+
+const i18nEls = [...document.querySelectorAll('[data-i18n]')];
+const ariaEls = [...document.querySelectorAll('[data-i18n-aria]')];
+const metaDesc = document.querySelector('meta[name="description"]');
+const original = {
+  html: new Map(i18nEls.map((el) => [el, el.innerHTML])),
+  aria: new Map(ariaEls.map((el) => [el, el.getAttribute('aria-label')])),
+  description: metaDesc.content,
+};
+
+const langBtn = document.getElementById('lang-btn');
+const langMenu = document.getElementById('lang-menu');
+
+function setLang(lang, { remember = true } = {}) {
+  if (!LANGS[lang]) lang = 'zh';
+  const dict = (lang !== 'zh' && window.I18N[lang]) || {};
+  i18nEls.forEach((el) => { el.innerHTML = dict[el.dataset.i18n] ?? original.html.get(el); });
+  ariaEls.forEach((el) => el.setAttribute('aria-label', dict[el.dataset.i18nAria] ?? original.aria.get(el)));
+  metaDesc.content = dict['meta.description'] ?? original.description;
+  document.documentElement.lang = LANGS[lang].htmlLang;
+  langBtn.textContent = LANGS[lang].short;
+  langMenu.querySelectorAll('[data-lang]').forEach((b) => b.setAttribute('aria-current', String(b.dataset.lang === lang)));
+  if (remember) {
+    try { localStorage.setItem('lang', lang); } catch {}
+    const url = new URL(location.href);
+    if (lang === 'zh') url.searchParams.delete('lang'); else url.searchParams.set('lang', lang);
+    history.replaceState(null, '', url);
+  }
+}
+
+const toggleLangMenu = (open = langMenu.hidden) => {
+  langMenu.hidden = !open;
+  langBtn.setAttribute('aria-expanded', String(open));
+};
+
+langBtn.addEventListener('click', () => toggleLangMenu());
+langMenu.addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-lang]');
+  if (!btn) return;
+  setLang(btn.dataset.lang);
+  toggleLangMenu(false);
+});
+document.addEventListener('click', (e) => {
+  if (!langMenu.hidden && !e.target.closest('.lang')) toggleLangMenu(false);
+});
+
+let savedLang = null;
+try { savedLang = localStorage.getItem('lang'); } catch {}
+setLang(new URLSearchParams(location.search).get('lang') || savedLang || 'zh', { remember: false });

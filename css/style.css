@@ -588,6 +588,51 @@ html { scroll-behavior: smooth; }
   pointer-events: auto;
 }
 
+/* Language picker (top-left) */
+.lang { position: relative; flex: none; }
+
+.lang-btn {
+  min-width: 0.72rem;
+  height: 0.72rem;
+  padding: 0 0.14rem;
+  border: 1px solid rgba(225, 192, 161, 0.4);
+  border-radius: 0.36rem;
+  background: none;
+  color: var(--text);
+  font-size: 0.28rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 0.16rem);
+  left: 0;
+  min-width: 2.6rem;
+  padding: 0.1rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.35);
+}
+
+.lang-menu button {
+  display: block;
+  width: 100%;
+  padding: 0.16rem 0.2rem;
+  border: 0;
+  border-radius: 0.1rem;
+  background: none;
+  color: var(--text);
+  font-size: 0.32rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lang-menu button[aria-current="true"] {
+  background: var(--label-bg);
+  color: var(--label-fg);
+}
+
 .tabs {
   flex: 1;
   display: flex;

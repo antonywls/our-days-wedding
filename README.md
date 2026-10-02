@@ -30,10 +30,19 @@ local, so nothing depends on Hunbei.
   `AUTO_SCROLL_SECONDS = 0` to disable), the countdown (Taipei time) and the
   fade-in of `.reveal` elements.
 
+## Languages
+
+繁體中文 (default), 廣東話 and English, picked from the top-left menu and
+remembered per visitor. Links can force one: `?lang=yue` or `?lang=en`.
+The Chinese text is in `index.html` (elements with `data-i18n="key"`);
+the other languages are in `js/i18n.js` under the same keys. English uses
+Chubby Crayon for the handwriting parts (it has no digits, so those use
+星光小熊貓體).
+
 ## Fonts are subsets
 
-The font files only contain the characters currently on the page, to keep
-them small. New text with characters that aren't on the page yet will show
+The font files only contain the characters currently on the page (in all
+three languages), to keep them small. New text with characters that aren't on the page yet will show
 those characters in a fallback font until the subset is regenerated (with
 `pyftsubset` from the full font file).
 
