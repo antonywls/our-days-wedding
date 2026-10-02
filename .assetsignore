@@ -8,3 +8,8 @@ package.json
 package-lock.json
 README.md
 wrangler.jsonc
+
+# Source files kept in the repo but not used by the page
+assets/images/Mountain 1.png
+assets/images/Mountain 2.png
+assets/images/manifest.json
