@@ -194,9 +194,9 @@ button { font: inherit; color: inherit; }
   letter-spacing: 0.03rem;
 }
 
-.hero-title .f-poppins {
+.hero-title .f-script {
   margin-left: 0.08rem;
-  font-size: 0.85em;
+  font-size: 1.05em;
   font-weight: normal;
   letter-spacing: 0;
 }
@@ -486,9 +486,8 @@ button { font: inherit; color: inherit; }
   padding-top: 0.25rem;
   border-top: 1px solid var(--tag);
   color: var(--muted);
-  font-size: calc(0.25rem * var(--text-scale));
-  line-height: 1.5;
-  letter-spacing: 0.02rem;
+  font-size: calc(0.34rem * var(--text-scale));
+  line-height: 1.45;
   text-wrap: balance;
 }
 

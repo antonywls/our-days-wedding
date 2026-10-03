@@ -7,6 +7,7 @@
 @font-face { font-family: jasonhandwriting-yue; src: url(../assets/fonts/jasonhandwriting-yue.woff2) format("woff2"); size-adjust: 94%; font-display: swap; }
 @font-face { font-family: puhuiti; src: url(../assets/fonts/puhuiti-latin.woff2) format("woff2"); unicode-range: U+0020-007E, U+00A0-00FF, U+2018-201D, U+2026; font-display: swap; }
 @font-face { font-family: chubbycrayon; src: url(../assets/fonts/chubbycrayon.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: parisienne; src: url(../assets/fonts/parisienne-latin.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: poppins; src: url(../assets/fonts/poppins-latin.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: waitingforthesunrise_2; src: url(../assets/fonts/waitingforthesunrise_2.ttf); font-display: swap; }
 
@@ -31,5 +32,8 @@ html[lang="en"] .hero-text,
 html[lang="en"] .notes-list { line-height: 1.65; }
 html[lang="en"] .story { text-wrap: pretty; }
 
-/* The three English mottos under the chapter photos */
+/* Cursive (Parisienne, SIL OFL): the three chapter mottos and the hero's English title */
+.f-script { font-family: parisienne, "Snell Roundhand", cursive; }
+
+/* English movie title */
 .f-poppins { font-family: poppins, "Helvetica Neue", Arial, sans-serif; }
