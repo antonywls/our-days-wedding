@@ -97,6 +97,11 @@ window.I18N = {
       <li>新郎新娘當日要好早起身準備，大家上載相片之前，記得幫手將相入面每一位都執靚啲呀🤭</li>
       <li>如果有事阻滯或者臨時有變，請提早通知新人，方便我哋調整安排～</li>`,
 
+    'rsvp.text': `
+      無論嚟唔嚟到，都想聽你講聲<br>
+      用一分鐘回覆，等我哋為你留好座位`,
+    'rsvp.button': '填寫出席回覆',
+
     closing: `
       婚禮當日好忙<br>
       如果我哋招呼唔周<br>
@@ -209,6 +214,12 @@ window.I18N = {
       <li>There’s also a drinks machine with 3 alcoholic and 3 non-alcoholic options, so help yourself and enjoy~</li>
       <li>The bride and groom will have been up since dawn getting ready, so before you upload any photos, please make sure everyone in them looks their best 🤭</li>
       <li>If something comes up or your plans change, please let us know in advance so we can adjust~</li>`,
+
+    'rsvp.title': 'RSVP',
+    'rsvp.text': `
+      Whether or not you can make it, we’d love to hear from you.<br>
+      It only takes a minute, and helps us save you a seat.`,
+    'rsvp.button': 'Let us know',
 
     closing: `
       The wedding day will be busy,<br>

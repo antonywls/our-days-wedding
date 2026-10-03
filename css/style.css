@@ -559,6 +559,61 @@ button { font: inherit; color: inherit; }
   top: 0;
 }
 
+/* RSVP card with the button to the Google Form */
+.rsvp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.6rem 0.5rem 0.7rem;
+  border: 1px solid rgba(225, 192, 161, 0.25);
+  border-radius: var(--radius);
+  background: var(--card);
+  text-align: center;
+}
+
+.rsvp-title {
+  color: var(--accent);
+  font-size: calc(0.48rem * var(--text-scale) * var(--hand-scale));
+  font-weight: bold;
+  letter-spacing: 0.08rem;
+}
+
+.rsvp-text {
+  font-size: calc(0.36rem * var(--text-scale) * var(--hand-scale));
+  font-weight: bold;
+  line-height: 1.8;
+  text-wrap: balance;
+}
+
+.rsvp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.14rem;
+  margin-top: 0.2rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: calc(0.38rem * var(--text-scale) * var(--hand-scale));
+  font-weight: bold;
+  letter-spacing: 0.04rem;
+  text-decoration: none;
+  box-shadow: 0 0.06rem 0.2rem rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+}
+
+.rsvp-btn:active { transform: scale(0.97); }
+
+.rsvp-btn svg {
+  width: 0.42rem;
+  height: 0.42rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+}
+
 .closing {
   display: flex;
   flex-direction: column;
