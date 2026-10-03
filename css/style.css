@@ -546,6 +546,7 @@ button { font: inherit; color: inherit; }
   gap: 0.12rem;
   color: var(--accent);
   font-weight: bold;
+  text-align: center;
 }
 
 .schedule img { height: 1.75rem; width: auto; margin-bottom: 0.1rem; }
