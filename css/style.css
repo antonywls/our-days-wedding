@@ -361,7 +361,7 @@ button { font: inherit; color: inherit; }
 
 .rating-footer .dot { margin: 0 0.15rem; }
 
-/* "Stay with me" card: tapping it toggles the music */
+/* Song card (現在開始): tapping it toggles the music */
 .song {
   display: flex;
   align-items: center;

@@ -1,3 +1,6 @@
 node_modules/
 .DS_Store
 .wrangler/
+
+# Original download of the song (the page uses the re-encoded music.mp3)
+assets/audio/王宏恩*.mp3

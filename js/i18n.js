@@ -22,7 +22,6 @@ window.I18N = {
     'movie.want': '想睇',
     'movie.seen': '睇過',
     'rating.footer': '131.4萬人睇過<span class="dot">·</span>52.1萬人想睇',
-    'song.status': '播緊歌.....',
 
     'intro.quote1': `
       一聲招呼，一次見面。<br>
@@ -134,7 +133,7 @@ window.I18N = {
     'movie.seen': 'Watched',
     'rating.count': '5,201,314 ratings',
     'rating.footer': '1.314M watched<span class="dot">·</span>521K want to watch',
-    'song.status': 'Now playing.....',
+    'song.artist': 'Biung · In Time with You OST',
 
     'intro.quote1': `
       One hello, one meeting.<br>

@@ -28,7 +28,7 @@ local, so nothing depends on Hunbei.
   the Hunbei page), Alibaba PuHuiTi (Latin in the
   movie/music cards), plus the original Hunbei fonts for the chapter titles.
 - `js/main.js`: background music (starts on first tap, since browsers block
-  autoplay; the music button and the "Stay with me" card toggle it), slow
+  autoplay; the music button and the song card toggle it; the song is 王宏恩 – 現在開始), slow
   auto-scroll (stops when the visitor touches/scrolls; change `AUTO_SCROLL_SPEED`
   for the speed, 0 disables it), the countdown (Taipei time) and the
   fade-in of `.reveal` elements.
