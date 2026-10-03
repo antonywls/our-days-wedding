@@ -201,14 +201,14 @@ button { font: inherit; color: inherit; }
   letter-spacing: 0;
 }
 
-/* The mountain sits right under the date.
-   margin-top = gap to the date, width = size (height follows),
+/* The mountain sits under the title.
+   margin-top = gap to the title, width = size (height follows),
    brightness() = how light the lines are (1 = original). */
 .hero-mountain {
   align-self: center;
   width: 10.6rem;
   max-width: none;
-  margin-top: 0.3rem;
+  margin-top: 1.1rem;
   filter: brightness(1.8);
 }
 
