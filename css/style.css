@@ -550,57 +550,20 @@ button { font: inherit; color: inherit; }
 .schedule span { font-size: calc(0.38rem * var(--text-scale) * var(--hand-scale)); }
 .schedule b { font-size: calc(0.34rem * var(--text-scale) * var(--hand-scale)); }
 
-/* Map preview card: the iframe ignores touches so the page scrolls normally;
-   tapping anywhere opens Google Maps */
+/* Google Maps embed */
 .map-card {
-  position: relative;
-  display: block;
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--card);
   aspect-ratio: 4 / 3;
-  text-decoration: none;
   -webkit-mask-image: -webkit-radial-gradient(white, black); /* Safari: clip iframe to radius */
 }
 
-/* The map is shifted up so Google's own "open in Maps" link at the top is
-   cropped off (our button replaces it). Google's logo and credits at the
-   bottom must stay visible. */
 .map-frame {
-  position: absolute;
-  top: -56px;
-  left: 0;
+  display: block;
   width: 100%;
-  height: calc(100% + 56px);
+  height: 100%;
   border: 0;
-  pointer-events: none;
-  filter: saturate(0.85);
-}
-
-.map-open {
-  position: absolute;
-  left: 50%;
-  top: 0.3rem;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.1rem;
-  padding: 0.14rem 0.36rem;
-  border-radius: 1rem;
-  background: var(--accent);
-  color: var(--bg);
-  font-size: calc(0.3rem * var(--text-scale));
-  font-weight: bold;
-  white-space: nowrap;
-  box-shadow: 0 0.06rem 0.24rem rgba(0, 0, 0, 0.3);
-}
-
-.map-open svg {
-  width: 0.36rem;
-  height: 0.36rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
 }
 
 /* ---- Notes & closing ----------------------------------------------------------------- */

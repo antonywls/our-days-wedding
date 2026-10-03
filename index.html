@@ -327,15 +327,11 @@
         格萊天漾大飯店　15F　天闊廳<br>
         108臺北市萬華區富福里艋舺大道101號
       </p>
-      <!-- Map preview: the whole card opens the venue in Google Maps -->
-      <a class="map-card reveal" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%A0%BC%E8%90%8A%E5%A4%A9%E6%BC%BE%E5%A4%A7%E9%A3%AF%E5%BA%97" target="_blank" rel="noopener">
-        <iframe class="map-frame" title="Google Maps" tabindex="-1" referrerpolicy="no-referrer-when-downgrade"
+      <!-- Google Maps embed (Google's own "open in Maps" link is inside the map) -->
+      <div class="map-card reveal">
+        <iframe class="map-frame" title="Google Maps" referrerpolicy="no-referrer-when-downgrade"
           data-src="https://maps.google.com/maps?q=%E6%A0%BC%E8%90%8A%E5%A4%A9%E6%BC%BE%E5%A4%A7%E9%A3%AF%E5%BA%97&amp;z=16&amp;hl=zh-TW&amp;output=embed"></iframe>
-        <span class="map-open">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>
-          <span data-i18n="map.open">在 Google 地圖開啟</span>
-        </span>
-      </a>
+      </div>
       <img class="photo reveal" src="assets/images/27.jpg" alt="交通資訊">
     </section>
 
