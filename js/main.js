@@ -164,6 +164,13 @@ function setLang(lang, { remember = true } = {}) {
   i18nEls.forEach((el) => { el.innerHTML = dict[el.dataset.i18n] ?? original.html.get(el); });
   ariaEls.forEach((el) => el.setAttribute('aria-label', dict[el.dataset.i18nAria] ?? original.aria.get(el)));
   metaDesc.content = dict['meta.description'] ?? original.description;
+  // Google map labels in the visitor's language
+  for (const frame of document.querySelectorAll('.map-frame')) {
+    const attr = frame.hasAttribute('src') ? 'src' : 'data-src';
+    const url = new URL(frame.getAttribute(attr));
+    url.searchParams.set('hl', { zh: 'zh-TW', yue: 'zh-HK', en: 'en' }[lang]);
+    if (frame.getAttribute(attr) !== url.href) frame.setAttribute(attr, url.href);
+  }
   document.documentElement.lang = LANGS[lang].htmlLang;
   langBtn.textContent = LANGS[lang].short;
   langMenu.querySelectorAll('[data-lang]').forEach((b) => b.setAttribute('aria-current', String(b.dataset.lang === lang)));
@@ -194,3 +201,17 @@ document.addEventListener('click', (e) => {
 let savedLang = null;
 try { savedLang = localStorage.getItem('lang'); } catch {}
 setLang(new URLSearchParams(location.search).get('lang') || savedLang || 'zh', { remember: false });
+
+// ---- Map: only load the (heavy) Google Maps embed when it comes near the screen -----
+
+const mapObserver = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    if (!entry.isIntersecting) continue;
+    const frame = entry.target;
+    frame.src = frame.dataset.src;
+    frame.removeAttribute('data-src');
+    mapObserver.unobserve(frame);
+  }
+}, { rootMargin: '600px 0px' });
+
+document.querySelectorAll('.map-frame[data-src]').forEach((frame) => mapObserver.observe(frame));

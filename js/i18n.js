@@ -90,6 +90,8 @@ window.I18N = {
       《邑起豪好》<br>
       故事仲未完，誠邀入席。`,
 
+    'map.open': '喺 Google 地圖打開',
+
     'notes': `
       <li>如果你身喺第二個城市，或者因為工作太忙嚟唔到儀式現場，唔緊要，我哋已經收到你嘅祝福喇😊</li>
       <li>簽到大堂有拍拍印機，想玩影相機嘅朋友可以早少少到，期待靚仔／靚女嘅現場留影！</li>
@@ -205,7 +207,9 @@ window.I18N = {
     'label.venue': 'The Venue',
     'info.venue': `
       Great Skyview Hotel · 15F · 天闊廳<br>
-      No. 101, Mengjia Blvd., Wanhua Dist., Taipei 108`,
+      101 Mengjia Blvd., Wanhua, Taipei`,
+
+    'map.open': 'Open in Google Maps',
 
     'label.notes': 'A Few Notes',
     'notes': `
