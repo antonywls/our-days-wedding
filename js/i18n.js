@@ -9,7 +9,7 @@ window.I18N = {
   // ---------------------------------------------------------------------------
   yue: {
     'meta.description': '誠意邀請你嚟參加我哋嘅婚禮 · 2026.12.12',
-    'aria.top': '返回頂部',
+    'tab.story': '我哋嘅故事',
     'aria.music': '播放 / 暫停音樂',
 
     hero: `
@@ -106,9 +106,9 @@ window.I18N = {
   // ---------------------------------------------------------------------------
   en: {
     'meta.description': 'You’re invited to our wedding · 2026.12.12',
-    'aria.top': 'Back to top',
     'aria.music': 'Play / pause music',
 
+    'tab.story': 'Our Story',
     'tab.date': 'Date',
     'tab.venue': 'Venue',
     'tab.notes': 'Notes',

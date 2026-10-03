@@ -115,9 +115,8 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-// ---- Top bar: back to top + highlight the tab of the section in view --------------
-
-document.getElementById('to-top').addEventListener('click', () => window.scrollTo({ top: 0 }));
+// ---- Top bar: highlight the tab of the section in view ----------------------------
+// (我們的故事 links to #top, the hero, so it is active until 婚禮時間 is reached)
 
 const tabs = [...document.querySelectorAll('.tab')];
 const tabSections = tabs.map((tab) => document.querySelector(tab.getAttribute('href')));
