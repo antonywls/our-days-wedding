@@ -24,7 +24,8 @@ local, so nothing depends on Hunbei.
   (full screen on phones, max 450px on desktop), so everything scales together.
 - `css/style.css`: spacing/colour tokens at the top (`--pad`, `--gap`,
   `--section`, `--radius`, colours), then one block per section.
-- `css/fonts.css`: 星光小熊貓體 (story text), Alibaba PuHuiTi (Latin in the
+- `css/fonts.css`: 清松手寫體1 / JasonHandwriting1 (story text, same font as
+  the Hunbei page), Alibaba PuHuiTi (Latin in the
   movie/music cards), plus the original Hunbei fonts for the chapter titles.
 - `js/main.js`: background music (starts on first tap, since browsers block
   autoplay; the music button and the "Stay with me" card toggle it), slow
@@ -39,7 +40,7 @@ remembered per visitor. Links can force one: `?lang=yue` or `?lang=en`.
 The Chinese text is in `index.html` (elements with `data-i18n="key"`);
 the other languages are in `js/i18n.js` under the same keys. English uses
 Chubby Crayon for the handwriting parts (it has no digits, so those use
-星光小熊貓體).
+清松手寫體).
 
 ## Fonts are subsets
 
