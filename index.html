@@ -335,7 +335,17 @@
         <iframe class="map-frame" title="Google Maps" referrerpolicy="no-referrer-when-downgrade"
           data-src="https://maps.google.com/maps?q=%E6%A0%BC%E8%90%8A%E5%A4%A9%E6%BC%BE%E5%A4%A7%E9%A3%AF%E5%BA%97&amp;z=16&amp;hl=zh-TW&amp;output=embed"></iframe>
       </div>
-      <img class="photo reveal" src="assets/images/27.jpg" alt="交通資訊">
+      <!-- Transport / parking: each image folds out when its title is tapped (style: .faq in css/style.css) -->
+      <div class="faq reveal">
+        <details class="faq-item">
+          <summary class="faq-q f-qssxt"><span data-i18n="faq.transport">大眾交通資訊</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <img class="faq-a" src="assets/images/transport.jpg" width="1024" height="1536" alt="交通方式">
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q f-qssxt"><span data-i18n="faq.parking">停車資訊</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <img class="faq-a" src="assets/images/parking.jpg" width="1024" height="1536" alt="停車資訊">
+        </details>
+      </div>
     </section>
 
     <!-- ===== Notes ============================================================== -->

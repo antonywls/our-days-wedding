@@ -566,6 +566,65 @@ button { font: inherit; color: inherit; }
   border: 0;
 }
 
+/* Transport / parking fold-outs. Tap a title to show its image; the
+   ::details-content rules animate the opening (browsers without support
+   simply open it straight away). */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.faq-item {
+  overflow: hidden;
+  border: 1px solid rgba(225, 192, 161, 0.25);
+  border-radius: var(--radius);
+  background: var(--card);
+  interpolate-size: allow-keywords;
+}
+
+.faq-item::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.4s ease, content-visibility 0.4s allow-discrete;
+}
+
+.faq-item[open]::details-content { block-size: auto; }
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.28rem 0.4rem;
+  color: var(--accent);
+  font-size: calc(0.38rem * var(--text-scale) * var(--hand-scale));
+  font-weight: bold;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-q::-webkit-details-marker { display: none; }
+
+.faq-q svg {
+  flex: none;
+  width: 0.42rem;
+  height: 0.42rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-q svg { transform: rotate(180deg); }
+
+.faq-a {
+  width: 100%;
+  height: auto;
+}
+
 /* ---- Notes & closing ----------------------------------------------------------------- */
 
 .notes-list {
