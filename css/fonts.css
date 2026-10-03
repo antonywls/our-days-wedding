@@ -6,7 +6,10 @@
    those, from 清松手寫體1 (SIL OFL), scaled to match 星光小熊貓體's character size. */
 @font-face { font-family: jasonhandwriting-yue; src: url(../assets/fonts/jasonhandwriting-yue.woff2) format("woff2"); size-adjust: 94%; font-display: swap; }
 @font-face { font-family: puhuiti; src: url(../assets/fonts/puhuiti-latin.woff2) format("woff2"); unicode-range: U+0020-007E, U+00A0-00FF, U+2018-201D, U+2026; font-display: swap; }
-@font-face { font-family: chubbycrayon; src: url(../assets/fonts/chubbycrayon.woff2) format("woff2"); font-display: swap; }
+/* Chubby Crayon is drawn small; size-adjust makes it ~20% larger */
+@font-face { font-family: chubbycrayon; src: url(../assets/fonts/chubbycrayon.woff2) format("woff2"); size-adjust: 120%; font-display: swap; }
+/* Digits for the English handwriting (Chubby Crayon has none): Gochi Hand, SIL OFL */
+@font-face { font-family: gochihand-digits; src: url(../assets/fonts/gochihand-digits.woff2) format("woff2"); unicode-range: U+0030-0039, U+003A; size-adjust: 120%; font-display: swap; }
 @font-face { font-family: parisienne; src: url(../assets/fonts/parisienne-latin.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: poppins; src: url(../assets/fonts/poppins-latin.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: waitingforthesunrise_2; src: url(../assets/fonts/waitingforthesunrise_2.ttf); font-display: swap; }
@@ -19,13 +22,13 @@
    (Microsoft YaHei on Windows, PingFang on Apple). */
 .f-card { font-family: puhuiti, "Microsoft YaHei", "PingFang TC", sans-serif; }
 
-/* English: Chubby Crayon for the handwriting parts. It has no digits or
-   symbols, so those fall through to 星光小熊貓體. */
+/* English: Chubby Crayon for the handwriting parts. It has no digits, so
+   those come from Gochi Hand (a close match); other symbols fall through to
+   星光小熊貓體. */
 html[lang="en"] .f-qssxt {
-  font-family: chubbycrayon, starpandakids, jasonhandwriting-yue, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-family: chubbycrayon, gochihand-digits, starpandakids, jasonhandwriting-yue, "PingFang TC", "Microsoft JhengHei", sans-serif;
   font-weight: normal;
   letter-spacing: 0.01rem;
-  font-size-adjust: 0.47;   /* ~20% larger than the font's natural size */
 }
 html[lang="en"] .story,
 html[lang="en"] .hero-text,
