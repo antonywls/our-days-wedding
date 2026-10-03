@@ -11,7 +11,7 @@
 /* Digits for the English handwriting (Chubby Crayon has none): Gochi Hand, SIL OFL */
 @font-face { font-family: gochihand-digits; src: url(../assets/fonts/gochihand-digits.woff2) format("woff2"); unicode-range: U+0030-0039, U+003A; size-adjust: 120%; font-display: swap; }
 @font-face { font-family: parisienne; src: url(../assets/fonts/parisienne-latin.woff2) format("woff2"); font-display: swap; }
-@font-face { font-family: poppins; src: url(../assets/fonts/poppins-latin.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: roboto; src: url(../assets/fonts/roboto-latin.woff2) format("woff2"); font-display: swap; }
 @font-face { font-family: waitingforthesunrise_2; src: url(../assets/fonts/waitingforthesunrise_2.ttf); font-display: swap; }
 
 /* Handwriting text: 星光小熊貓體 */
@@ -39,4 +39,4 @@ html[lang="en"] .story { text-wrap: pretty; }
 .f-script { font-family: parisienne, "Snell Roundhand", cursive; }
 
 /* English movie title */
-.f-poppins { font-family: poppins, "Helvetica Neue", Arial, sans-serif; }
+.f-roboto { font-family: roboto, "Helvetica Neue", Arial, sans-serif; }
