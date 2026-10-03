@@ -6,16 +6,17 @@
  */
 
 :root {
-  --bg: #473529;
-  --card: rgb(59, 40, 34);
-  --text: rgb(206, 189, 181);
-  --accent: rgb(252, 224, 203);
-  --muted: rgb(149, 120, 112);
-  --tan: rgb(147, 113, 86);
-  --tag: rgb(225, 192, 161);
-  --label-bg: rgb(122, 81, 56);
-  --label-fg: rgb(230, 188, 163);
-  --line: rgb(80, 58, 50);
+  /* Colours: light beige page, dark brown text, flat cards */
+  --bg: #f4ece1;          /* page background */
+  --card: #fbf7f1;        /* cards (rating, song, RSVP, fold-outs) */
+  --text: #4a382d;        /* body text */
+  --accent: #8a5a3c;      /* highlighted text (dates, quotes, titles) */
+  --muted: #a08a7a;       /* secondary text */
+  --tan: #7a5138;         /* text on the tan tags */
+  --tag: #e9d7c3;         /* tan name / chapter tags */
+  --label-bg: #7a5138;    /* brown pills (section headings, active tab) */
+  --label-fg: #f7ede1;
+  --line: #e6dacb;        /* hairlines and card borders */
 
   --pad: 0.6rem;          /* left/right page padding */
   --gap: 0.8rem;          /* space between items inside a section */
@@ -84,9 +85,9 @@ button { font: inherit; color: inherit; }
 /* Three little squares used as a divider */
 .dots { display: flex; justify-content: center; gap: 0.16rem; }
 .dots i { width: 0.24rem; height: 0.24rem; }
-.dots i:nth-child(1) { background: rgb(113, 95, 82); }
-.dots i:nth-child(2) { background: rgb(122, 81, 56); }
-.dots i:nth-child(3) { background: rgb(31, 16, 11); }
+.dots i:nth-child(1) { background: #c9b4a2; }
+.dots i:nth-child(2) { background: #a5785a; }
+.dots i:nth-child(3) { background: #4a382d; }
 
 .quote {
   font-size: calc(0.48rem * var(--text-scale) * var(--hand-scale));
@@ -180,7 +181,7 @@ button { font: inherit; color: inherit; }
 
 .hero-date {
   margin-top: 0.4rem;
-  color: #fff;
+  color: var(--accent);
   font-size: calc(0.5rem * var(--text-scale));
   font-weight: bold;
   font-style: oblique;
@@ -203,18 +204,18 @@ button { font: inherit; color: inherit; }
 
 /* The mountain sits under the title.
    margin-top = gap to the title, width = size (height follows),
-   brightness() = how light the lines are (1 = original). */
+   brightness() = how dark the lines are (1 = original, lower = darker). */
 .hero-mountain {
   align-self: center;
   width: 10.6rem;
   max-width: none;
   margin-top: 1.1rem;
-  filter: brightness(1.8);
+  filter: brightness(0.55);
 }
 
 /* ---- Movie card ------------------------------------------------------------- */
 
-.movie { gap: 0.45rem; color: #fff; }
+.movie { gap: 0.45rem; color: var(--text); }
 
 .movie-top {
   display: flex;
@@ -254,15 +255,15 @@ button { font: inherit; color: inherit; }
 .movie-year {
   margin-top: 0.08rem;
   font-size: calc(0.3rem * var(--text-scale));
-  color: var(--text);
+  color: var(--muted);
 }
 
 .movie-badge {
   margin-top: 0.22rem;
   padding: 0.07rem 0.2rem;
   border-radius: 0.06rem;
-  background: rgb(250, 208, 148);
-  color: rgb(145, 97, 31);
+  background: #f3d9b1;
+  color: #8a5a22;
   font-size: calc(0.26rem * var(--text-scale));
   font-weight: bold;
   letter-spacing: 0.03rem;
@@ -272,7 +273,7 @@ button { font: inherit; color: inherit; }
   margin-top: 0.22rem;
   font-size: calc(0.26rem * var(--text-scale));
   line-height: 1.75;
-  color: var(--text);
+  color: var(--muted);
 }
 
 .movie-buttons {
@@ -289,9 +290,10 @@ button { font: inherit; color: inherit; }
   justify-content: center;
   gap: 0.1rem;
   height: 0.8rem;
+  border: 1px solid var(--line);
   border-radius: 0.13rem;
-  background: #fff;
-  color: #000;
+  background: var(--card);
+  color: var(--text);
   font-size: calc(0.32rem * var(--text-scale));
   font-weight: bold;
 }
@@ -301,6 +303,7 @@ button { font: inherit; color: inherit; }
 .rating {
   position: relative;
   padding: 0.4rem 0.45rem 0.3rem;
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--card);
 }
@@ -311,7 +314,7 @@ button { font: inherit; color: inherit; }
   right: 0.35rem;
   font-size: calc(0.45rem * var(--text-scale));
   line-height: 1;
-  color: var(--text);
+  color: var(--muted);
 }
 
 .rating-main {
@@ -348,7 +351,7 @@ button { font: inherit; color: inherit; }
 
 .rating-count {
   font-size: calc(0.24rem * var(--text-scale));
-  color: var(--text);
+  color: var(--muted);
 }
 
 .rating-footer {
@@ -356,7 +359,7 @@ button { font: inherit; color: inherit; }
   padding-top: 0.25rem;
   border-top: 1px solid var(--line);
   font-size: calc(0.26rem * var(--text-scale));
-  color: var(--text);
+  color: var(--muted);
 }
 
 .rating-footer .dot { margin: 0 0.15rem; }
@@ -368,17 +371,17 @@ button { font: inherit; color: inherit; }
   gap: 0.3rem;
   width: 100%;
   padding: 0.3rem 0.3rem 0.3rem 0.4rem;
-  border: 0;
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgb(239, 236, 233);
+  background: var(--card);
   text-align: left;
   cursor: pointer;
 }
 
 .song-text { flex: 1; display: flex; flex-direction: column; gap: 0.16rem; }
-.song-title { color: rgb(59, 40, 34); font-size: calc(0.45rem * var(--text-scale)); font-weight: bold; }
-.song-status { color: rgb(160, 160, 160); font-size: calc(0.28rem * var(--text-scale)); }
-.song-bars { width: 0.5rem; align-self: flex-end; margin-bottom: 0.1rem; }
+.song-title { color: var(--text); font-size: calc(0.45rem * var(--text-scale)); font-weight: bold; }
+.song-status { color: var(--muted); font-size: calc(0.28rem * var(--text-scale)); }
+.song-bars { width: 0.5rem; opacity: 0.7; align-self: flex-end; margin-bottom: 0.1rem; }
 .song-cover { width: 1.6rem; height: 1.6rem; object-fit: cover; border-radius: 0.1rem; }
 
 /* ---- Intro: couple ---------------------------------------------------------------- */
@@ -440,7 +443,7 @@ button { font: inherit; color: inherit; }
 }
 
 .chapter-title {
-  color: #fff;
+  color: var(--text);
   font-size: 0.7rem;
   font-weight: bold;
   line-height: 1;
@@ -576,7 +579,7 @@ button { font: inherit; color: inherit; }
 
 .faq-item {
   overflow: hidden;
-  border: 1px solid rgba(225, 192, 161, 0.25);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--card);
   interpolate-size: allow-keywords;
@@ -638,14 +641,20 @@ button { font: inherit; color: inherit; }
 
 .notes-list li {
   position: relative;
-  padding-left: 1.6em;
+  padding-left: 0.5rem;
 }
 
+/* small round bullet, vertically centred on the first line */
 .notes-list li::before {
-  content: "🫧";
+  content: "";
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 0.08rem;
+  top: 0.85em;
+  width: 0.16rem;
+  height: 0.16rem;
+  border-radius: 50%;
+  background: #c9a585;
+  transform: translateY(-50%);
 }
 
 /* RSVP card with the button to the Google Form */
@@ -655,7 +664,7 @@ button { font: inherit; color: inherit; }
   align-items: center;
   gap: 0.3rem;
   padding: 0.6rem 0.5rem 0.7rem;
-  border: 1px solid rgba(225, 192, 161, 0.25);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--card);
   text-align: center;
@@ -682,13 +691,12 @@ button { font: inherit; color: inherit; }
   margin-top: 0.2rem;
   padding: 0.2rem 0.5rem;
   border-radius: 1rem;
-  background: var(--accent);
-  color: var(--bg);
+  background: var(--label-bg);
+  color: var(--label-fg);
   font-size: calc(0.38rem * var(--text-scale) * var(--hand-scale));
   font-weight: bold;
   letter-spacing: 0.04rem;
   text-decoration: none;
-  box-shadow: 0 0.06rem 0.2rem rgba(0, 0, 0, 0.25);
   transition: transform 0.2s;
 }
 
@@ -742,10 +750,10 @@ html { scroll-behavior: smooth; }
   width: 10rem;
   margin: 0 auto;
   padding: 0.18rem 0.2rem;
-  background: rgba(59, 40, 34, 0.82);
+  background: rgba(244, 236, 225, 0.88);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(225, 192, 161, 0.15);
+  border-bottom: 1px solid var(--line);
   pointer-events: auto;
 }
 
@@ -756,7 +764,7 @@ html { scroll-behavior: smooth; }
   min-width: 0.72rem;
   height: 0.72rem;
   padding: 0 0.14rem;
-  border: 1px solid rgba(225, 192, 161, 0.4);
+  border: 1px solid var(--line);
   border-radius: 0.36rem;
   background: none;
   color: var(--text);
@@ -772,8 +780,9 @@ html { scroll-behavior: smooth; }
   min-width: 2.6rem;
   padding: 0.1rem;
   border-radius: var(--radius);
+  border: 1px solid var(--line);
   background: var(--card);
-  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.08rem 0.3rem rgba(74, 56, 45, 0.12);
 }
 
 .lang-menu button {
@@ -830,7 +839,7 @@ html { scroll-behavior: smooth; }
   border: 0;
   border-radius: 50%;
   overflow: hidden;
-  background: rgba(75, 41, 16, 0.54);
+  background: var(--label-bg);
   cursor: pointer;
 }
 
@@ -867,9 +876,10 @@ html { scroll-behavior: smooth; }
 
 .cd-box {
   padding: 0.16rem 0 0.14rem;
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--accent);
-  color: var(--bg);
+  background: var(--card);
+  color: var(--text);
 }
 
 .cd-digits {
@@ -907,17 +917,18 @@ html { scroll-behavior: smooth; }
   font-size: calc(0.28rem * var(--text-scale));
   text-align: center;
   white-space: nowrap;
-  opacity: 0.8;
+  color: var(--muted);
 }
 
 /* ---- Calendar ------------------------------------------------------------- */
 
 .calendar {
-  --theme: rgb(248, 182, 135);
-  --heart: rgb(199, 31, 49);
+  --theme: #b9805a;
+  --heart: #c4343f;
   padding: 0.2rem 0 0.4rem;
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #fff;
+  background: var(--card);
 }
 
 .cal-top {
@@ -938,7 +949,7 @@ html { scroll-behavior: smooth; }
   height: 0.9rem;
   line-height: 0.9rem;
   margin: 0 0.5rem;
-  border-bottom: 1px solid var(--theme);
+  border-bottom: 1px solid var(--line);
 }
 
 .cal-week span {
