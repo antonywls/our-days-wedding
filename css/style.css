@@ -22,6 +22,7 @@
   --section: 2rem;        /* space between sections */
   --radius: 0.16rem;      /* photo / card corners */
   --text-scale: 1;        /* multiplies all body/small text sizes */
+  --hand-scale: 1.08;     /* extra size for the handwriting (清松手寫體) text */
 }
 
 /* Phones: the column is narrower than on desktop, so bump the text up a bit */
@@ -88,7 +89,7 @@ button { font: inherit; color: inherit; }
 .dots i:nth-child(3) { background: rgb(31, 16, 11); }
 
 .quote {
-  font-size: calc(0.48rem * var(--text-scale));
+  font-size: calc(0.48rem * var(--text-scale) * var(--hand-scale));
   font-weight: bold;
   line-height: 2;
   letter-spacing: 0.03rem;
@@ -99,17 +100,18 @@ button { font: inherit; color: inherit; }
 .quote-accent { color: var(--accent); }
 
 .story {
-  font-size: calc(0.4rem * var(--text-scale));
+  font-size: calc(0.4rem * var(--text-scale) * var(--hand-scale));
   font-weight: bold;
   line-height: 1.9;
   letter-spacing: 0.02rem;
   padding: 0 0.1rem;
+  text-wrap: pretty;   /* avoid a lone character on the last line */
 }
 
 .story-date {
   display: block;
   margin-bottom: 0.25rem;
-  font-size: calc(0.38rem * var(--text-scale));
+  font-size: calc(0.38rem * var(--text-scale) * var(--hand-scale));
   color: var(--accent);
   letter-spacing: 0.04rem;
 }
@@ -126,7 +128,7 @@ button { font: inherit; color: inherit; }
   padding: 0.14rem 0.4rem;
   background: var(--label-bg);
   color: var(--label-fg);
-  font-size: calc(0.44rem * var(--text-scale));
+  font-size: calc(0.44rem * var(--text-scale) * var(--hand-scale));
   font-weight: normal;
   letter-spacing: 0.08rem;
   line-height: 1.2;
@@ -169,7 +171,7 @@ button { font: inherit; color: inherit; }
 }
 
 .hero-text {
-  font-size: calc(0.4rem * var(--text-scale));
+  font-size: calc(0.4rem * var(--text-scale) * var(--hand-scale));
   font-weight: bold;
   line-height: 2.1;
   letter-spacing: 0.05rem;
@@ -398,7 +400,7 @@ button { font: inherit; color: inherit; }
 
 .person-role {
   color: var(--muted);
-  font-size: calc(0.5rem * var(--text-scale));
+  font-size: calc(0.5rem * var(--text-scale) * var(--hand-scale));
   font-weight: bold;
   letter-spacing: 0.07rem;
 }
@@ -436,7 +438,7 @@ button { font: inherit; color: inherit; }
   padding: 0.08rem 0.3rem;
   background: var(--tag);
   color: var(--tan);
-  font-size: calc(0.36rem * var(--text-scale));
+  font-size: calc(0.36rem * var(--text-scale) * var(--hand-scale));
   font-weight: bold;
   letter-spacing: 0.08rem;
   line-height: 1.2;
@@ -497,7 +499,7 @@ button { font: inherit; color: inherit; }
 .invite-from {
   position: relative;
   align-self: flex-end;
-  font-size: calc(0.42rem * var(--text-scale));
+  font-size: calc(0.42rem * var(--text-scale) * var(--hand-scale));
   font-weight: bold;
   letter-spacing: 0.03rem;
 }
@@ -507,7 +509,7 @@ button { font: inherit; color: inherit; }
 .info { align-items: stretch; }
 
 .info-text {
-  font-size: calc(0.4rem * var(--text-scale));
+  font-size: calc(0.4rem * var(--text-scale) * var(--hand-scale));
   font-weight: bold;
   line-height: 1.9;
   text-align: center;
@@ -530,8 +532,8 @@ button { font: inherit; color: inherit; }
 }
 
 .schedule img { height: 1.75rem; width: auto; margin-bottom: 0.1rem; }
-.schedule span { font-size: calc(0.38rem * var(--text-scale)); }
-.schedule b { font-size: calc(0.34rem * var(--text-scale)); }
+.schedule span { font-size: calc(0.38rem * var(--text-scale) * var(--hand-scale)); }
+.schedule b { font-size: calc(0.34rem * var(--text-scale) * var(--hand-scale)); }
 
 /* ---- Notes & closing ----------------------------------------------------------------- */
 
@@ -539,9 +541,10 @@ button { font: inherit; color: inherit; }
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  font-size: calc(0.38rem * var(--text-scale));
+  font-size: calc(0.38rem * var(--text-scale) * var(--hand-scale));
   font-weight: bold;
   line-height: 1.7;
+  text-wrap: pretty;
 }
 
 .notes-list li {
@@ -565,7 +568,7 @@ button { font: inherit; color: inherit; }
   padding: 0 var(--pad);
 }
 
-.closing .quote { font-size: calc(0.42rem * var(--text-scale)); }
+.closing .quote { font-size: calc(0.42rem * var(--text-scale) * var(--hand-scale)); }
 /* Same treatment as the title mountain: full width, lines lifted to match */
 .closing-mountain {
   width: 10rem;
@@ -659,7 +662,7 @@ html { scroll-behavior: smooth; }
   padding: 0.12rem 0.22rem;
   border-radius: 1rem;
   color: var(--text);
-  font-size: calc(0.3rem * var(--text-scale));
+  font-size: calc(0.3rem * var(--text-scale) * var(--hand-scale));
   font-weight: bold;
   letter-spacing: 0.03rem;
   line-height: 1.3;
