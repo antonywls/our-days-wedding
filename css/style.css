@@ -721,12 +721,12 @@ button { font: inherit; color: inherit; }
 }
 
 .closing .quote { font-size: calc(0.42rem * var(--text-scale) * var(--hand-scale)); }
-/* Same treatment as the title mountain: full width, lines lifted to match */
-.closing-mountain {
+/* Couple illustration at the very end, full column width */
+.closing-art {
   width: 10rem;
   max-width: none;
+  height: auto;
   margin: 0.2rem calc(-1 * var(--pad)) 0;
-  filter: brightness(1.15);
 }
 
 /* ---- Top bar (language, tabs, music) ------------------------------------ */
