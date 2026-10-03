@@ -13,14 +13,11 @@ window.I18N = {
     'aria.music': '播放 / 暫停音樂',
 
     hero: `
-      嗨～收到呢封喜帖嘅你<br>
-      我哋嘅婚禮，真係就嚟到喇！<br>
+      由各自嘅日常，到同一個畫面，<br>
+      佢哋嘅故事，即將迎嚟新嘅一章。<br>
       <br>
-      呢排忙住揀相、改字、諗細節<br>
-      想將鍾意嘅樣子都放晒入去<br>
-      亦都想請你<br>
-      嚟聽故事嘅兩位主角，親口講句：<br>
-      「我哋結婚喇！」`,
+      呢場以婚禮為名嘅首映，<br>
+      邀請一路相伴嘅親友，一齊入席。`,
 
     'movie.want': '想睇',
     'movie.seen': '睇過',
@@ -33,7 +30,7 @@ window.I18N = {
       開始有咗共同嘅日常。`,
     'intro.quote2': `
       呢部係由佢哋親自主演，<br>
-      而且故事仲上演緊嘅電影。`,
+      仲喺度持續拍攝緊嘅愛情電影。`,
 
     'ch1.story1': `
       <span class="story-date">2024/10/11</span>
@@ -47,9 +44,11 @@ window.I18N = {
       點都估唔到，<br>
       大家會變成往後日日都想見嘅人。`,
     'ch1.story2': `
-      女主角陪住班細路出發上山之前，<br>
-      嗰一袋細心準備，嗰一次認真叮囑，<br>
-      嗰啲甜言蜜語打動唔到嘅時刻，<br>
+      一個忙住講老土情話，一個忙住反白眼。<br>
+      喺女主角就快陪班細路挑戰合歡北峰之前，<br>
+      男主角帶咗一袋裝備嚟，講咗一句又一句叮嚀。<br>
+      <br>
+      嗰啲情話打動唔到嘅時刻，<br>
       都由男主角嘅細心慢慢補返。`,
     'ch2.story': `
       <span class="story-date">2024.12.14｜兩個人嘅故事</span>
@@ -58,8 +57,8 @@ window.I18N = {
       男主角收唔埋嘅鍾意，終於變成一句直接嘅邀請。<br>
       最後換嚟女主角一句帶住笑嘅「好」。<br>
       <br>
-      由呢一日開始，兩個人，一隻狗。<br>
-      日子不知不覺，有咗屋企嘅樣。`,
+      後來，兩個人，一隻狗，<br>
+      喺一齊嘅日常入面，慢慢有咗屋企嘅樣。`,
     'ch3.story1': `
       <span class="story-date">2026.07.21｜故事未完，待續</span>
       認識嘅時間唔算長，<br>
@@ -71,7 +70,7 @@ window.I18N = {
       <span class="story-date">2026.12.12｜首映之日</span>
       喺變成「佢哋」之前，<br>
       男女主角各自嘅故事入面，<br>
-      早已經有好多重要嘅人。<br>
+      早已經有好多重要嘅你哋。<br>
       <br>
       屋企人嘅照顧、朋友嘅陪伴，<br>
       令各自嘅人生，<br>
@@ -96,8 +95,8 @@ window.I18N = {
       <li>如果你身喺第二個城市，或者因為工作太忙嚟唔到儀式現場，唔緊要，我哋已經收到你嘅祝福喇😊</li>
       <li>簽到大堂有拍拍印機，想玩影相機嘅朋友可以早少少到，期待靚仔／靚女嘅現場留影！</li>
       <li>現場仲有點點酒機，提供含酒精同無酒精飲品各3款，大家可以盡情飲～</li>
-      <li>新郎新娘當日要好早起身準備，大家上載相片之前，記得幫手將相入面每一位都執靚啲呀🤭</li>
-      <li>如果有事阻滯或者臨時有變，請提早通知新人，方便我哋調整安排～</li>`,
+      <li>當日歡迎捕捉兩位主角嘅精彩花絮，上載之前，記得幫手揀張靚嘅，始終偶像包袱，都係有少少嘅🤭</li>
+      <li>如果行程臨時有變、嚟唔到，麻煩提早話俾我哋知，方便調整安排。你哋嘅心意我哋一樣收到，之後再搵時間聚吓😍</li>`,
 
     'rsvp.text': `
       無論嚟唔嚟到，都想聽你講聲<br>
@@ -121,15 +120,14 @@ window.I18N = {
     'tab.notes': 'Notes',
 
     hero: `
-      Hi, you, holding this invitation:<br>
-      our wedding is really almost here!<br>
+      From two separate everyday lives<br>
+      to one shared frame,<br>
+      their story is about to begin<br>
+      a new chapter.<br>
       <br>
-      We’ve been busy picking photos,<br>
-      rewriting words, fussing over details,<br>
-      trying to fit in everything we love.<br>
-      And we’d love for you to come<br>
-      and hear the two leads say it themselves:<br>
-      “We’re getting married!”`,
+      A premiere called a wedding,<br>
+      and all who walked with them<br>
+      are invited to take a seat.`,
 
     'movie.meta': 'Taiwan / Romance · Drama / 2026.12.12<br>Premiere / Runtime 135 min',
     'movie.want': 'Watchlist',
@@ -145,8 +143,8 @@ window.I18N = {
     'role.groom': 'Groom',
     'role.bride': 'Bride',
     'intro.quote2': `
-      A film starring the two of them,<br>
-      whose story is still being written.`,
+      A love story starring the two of them,<br>
+      still being filmed.`,
 
     'ch1.tag': 'We met',
     'ch2.tag': 'In love',
@@ -160,20 +158,22 @@ window.I18N = {
       <br>
       Neither of them saw it coming, that they’d become the one the other wants to see every day.`,
     'ch1.story2': `
-      Before she set off up the mountain with the kids, he packed her bag with care and went over every detail with her. Where sweet words had never won her over, his thoughtfulness slowly did.`,
+      One was busy with cheesy pick-up lines, the other busy rolling her eyes. Before she took the kids up Hehuan North Peak, he showed up with a bag of gear and a long list of reminders.<br>
+      <br>
+      Where sweet talk had never won her over, his thoughtfulness slowly did.`,
     'ch2.story': `
       <span class="story-date">2024.12.14｜Our story</span>
       A giant Winnie the Pooh, and a heartfelt confession.<br>
       <br>
       The feelings he couldn’t hide finally became a simple question, answered by her smiling “yes.”<br>
       <br>
-      From that day on: two people, one dog. Without even noticing, life began to look like home.`,
+      Later came two people and one dog, and in their everyday life together, little by little, it began to look like home.`,
     'ch3.story1': `
       <span class="story-date">2026.07.21｜To be continued</span>
       They haven’t known each other all that long, yet it feels like they’ve walked together for years. So they signed their names, and every little thing yet to happen now carries both of their signatures.`,
     'ch3.story2': `
       <span class="story-date">2026.12.12｜Premiere day</span>
-      Long before they became “them,” his story and hers were already full of important people.<br>
+      Long before they became “them,” his story and hers were already full of people who matter: all of you.<br>
       <br>
       The care of family, the company of friends carried each of their lives all the way to meeting, and then to here.`,
 
@@ -216,8 +216,8 @@ window.I18N = {
       <li>If you’re in another city or can’t make it because of work, no worries at all, we’ve already received your blessings 😊</li>
       <li>There’s a photo-print booth in the lobby at sign-in. If you’d like some snaps, come a little early, we can’t wait to see you looking your best!</li>
       <li>There’s also a drinks machine with 3 alcoholic and 3 non-alcoholic options, so help yourself and enjoy~</li>
-      <li>The bride and groom will have been up since dawn getting ready, so before you upload any photos, please make sure everyone in them looks their best 🤭</li>
-      <li>If something comes up or your plans change, please let us know in advance so we can adjust~</li>`,
+      <li>Feel free to capture the two leads’ best behind-the-scenes moments! Before you upload, please help pick the good ones, after all, we do have a little idol image to keep up 🤭</li>
+      <li>If your plans change and you can’t make it, please let us know in advance so we can adjust. Your kind thoughts still reach us, and we’ll find another time to catch up 😍</li>`,
 
     'rsvp.title': 'RSVP',
     'rsvp.text': `

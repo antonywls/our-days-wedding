@@ -187,6 +187,20 @@ button { font: inherit; color: inherit; }
   letter-spacing: 0.12rem;
 }
 
+.hero-title {
+  margin-top: 0.2rem;
+  font-size: calc(0.4rem * var(--text-scale) * var(--hand-scale));
+  font-weight: bold;
+  letter-spacing: 0.03rem;
+}
+
+.hero-title .f-poppins {
+  margin-left: 0.08rem;
+  font-size: 0.85em;
+  font-weight: normal;
+  letter-spacing: 0;
+}
+
 /* The mountain sits right under the date.
    margin-top = gap to the date, width = size (height follows),
    brightness() = how light the lines are (1 = original). */
