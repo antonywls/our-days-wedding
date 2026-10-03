@@ -550,6 +550,9 @@ button { font: inherit; color: inherit; }
 }
 
 .schedule img { height: 1.75rem; width: auto; margin-bottom: 0.1rem; }
+/* The rings are wider than the other two icons, so draw them a bit smaller
+   (the top margin keeps the labels lined up) */
+.schedule .sched-ring { height: 1.45rem; margin-top: 0.3rem; }
 .schedule span { font-size: calc(0.38rem * var(--text-scale) * var(--hand-scale)); }
 .schedule b { font-size: calc(0.34rem * var(--text-scale) * var(--hand-scale)); }
 
