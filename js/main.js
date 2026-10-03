@@ -24,12 +24,15 @@ function startOnFirstInteraction() {
 bgm.play().catch(startOnFirstInteraction);
 
 // ---- Auto-scroll -----------------------------------------------------------------
-// Like the original, the page slowly scrolls itself to the end (in 175s).
+// Like the original, the page slowly scrolls itself to the end.
 // Any interaction from the visitor stops it for good.
 
-const AUTO_SCROLL_SECONDS = 175;   // set to 0 to disable
+// Speed in rem per second (1rem = 1/10 of the page width, so it feels the
+// same on every screen). Higher = faster; 1.2 ≈ 45px/s on a phone.
+// Set to 0 to turn auto-scroll off.
+const AUTO_SCROLL_SPEED = 1.2;
 
-if (AUTO_SCROLL_SECONDS > 0 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+if (AUTO_SCROLL_SPEED > 0 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const stopEvents = ['wheel', 'touchstart', 'pointerdown', 'keydown'];
   let running = true;
   let last = null;
@@ -45,7 +48,8 @@ if (AUTO_SCROLL_SECONDS > 0 && !matchMedia('(prefers-reduced-motion: reduce)').m
     if (!running) return;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     if (last !== null) {
-      y = Math.min(max, y + (max / AUTO_SCROLL_SECONDS) * ((t - last) / 1000));
+      const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      y = Math.min(max, y + AUTO_SCROLL_SPEED * rem * ((t - last) / 1000));
       window.scrollTo({ top: y, behavior: 'instant' });
     }
     last = t;

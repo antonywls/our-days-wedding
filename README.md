@@ -28,8 +28,8 @@ local, so nothing depends on Hunbei.
   movie/music cards), plus the original Hunbei fonts for the chapter titles.
 - `js/main.js`: background music (starts on first tap, since browsers block
   autoplay; the music button and the "Stay with me" card toggle it), slow
-  auto-scroll (stops when the visitor touches/scrolls; set
-  `AUTO_SCROLL_SECONDS = 0` to disable), the countdown (Taipei time) and the
+  auto-scroll (stops when the visitor touches/scrolls; change `AUTO_SCROLL_SPEED`
+  for the speed, 0 disables it), the countdown (Taipei time) and the
   fade-in of `.reveal` elements.
 
 ## Languages
