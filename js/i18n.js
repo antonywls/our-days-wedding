@@ -141,7 +141,7 @@ window.I18N = {
     'movie.seen': 'Watched',
     'rating.count': '5,201,314 ratings',
     'rating.footer': '1.314M watched<span class="dot">·</span>521K want to watch',
-    'song.artist': 'Biung · In Time with You OST',
+    'song.artist': 'Biung',
 
     'intro.quote1': `
       One hello, one meeting.<br>
