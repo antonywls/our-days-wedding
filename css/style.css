@@ -22,7 +22,7 @@
   --section: 2rem;        /* space between sections */
   --radius: 0.16rem;      /* photo / card corners */
   --text-scale: 1;        /* multiplies all body/small text sizes */
-  --hand-scale: 1.08;     /* extra size for the handwriting (清松手寫體) text */
+  --hand-scale: 1.08;     /* extra size for the handwriting text */
 }
 
 /* Phones: the column is narrower than on desktop, so bump the text up a bit */
