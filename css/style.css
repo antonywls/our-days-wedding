@@ -965,7 +965,9 @@ html { scroll-behavior: smooth; }
   top: 50%;
   width: 0.66rem;
   height: 0.62rem;
-  margin: -0.31rem 0 0 -0.33rem;
+  /* nudged down: a heart's visual centre is above its box centre, so this
+     puts the number in the wide part of the heart */
+  margin: -0.25rem 0 0 -0.33rem;
   /* heart.svg is used as a mask so it takes the heart colour */
   background: var(--heart);
   -webkit-mask: url(../assets/icons/heart.svg) center / contain no-repeat;
